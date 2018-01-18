@@ -3,9 +3,9 @@
 /deploy/
 /desktop/packr-out/
 /desktop/packr-export/
-/desktop/gifexport/
-/core/assets/gifexport/
-*.gif
+##/desktop/gifexport/
+##/core/assets/gifexport/
+##*.gif
 
 ## Java
 
