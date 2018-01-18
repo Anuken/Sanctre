@@ -1,0 +1,2400 @@
+
+sprites.png
+size: 1024,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+blank
+  rotate: false
+  xy: 958, 91
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+effects/candlelight0
+  rotate: false
+  xy: 509, 80
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+effects/candlelight1
+  rotate: false
+  xy: 509, 73
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+effects/candlelight2
+  rotate: false
+  xy: 887, 74
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+effects/rockparticle
+  rotate: false
+  xy: 779, 3
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+enemies/corruption/darkeffigy
+  rotate: false
+  xy: 682, 31
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+enemies/corruption/marbledrone
+  rotate: false
+  xy: 961, 91
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+enemies/corruption/marblegolem
+  rotate: false
+  xy: 975, 84
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+enemies/corruption/marblegolem-armless
+  rotate: false
+  xy: 989, 84
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+enemies/corruption/marblegolem-arms
+  rotate: false
+  xy: 880, 81
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+enemies/corruption/marbleobelisk
+  rotate: false
+  xy: 724, 35
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentacolumn
+  rotate: false
+  xy: 587, 161
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentacolumneye
+  rotate: false
+  xy: 620, 161
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentacolumneye2
+  rotate: false
+  xy: 653, 165
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentacolumnleft
+  rotate: false
+  xy: 686, 165
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentacolumnright
+  rotate: false
+  xy: 719, 165
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentacolumntop
+  rotate: false
+  xy: 752, 165
+  size: 31, 31
+  orig: 31, 31
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentafly
+  rotate: false
+  xy: 611, 194
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaflyeye
+  rotate: false
+  xy: 977, 126
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaflyeye2
+  rotate: false
+  xy: 785, 161
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaflyi1
+  rotate: false
+  xy: 811, 161
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaflyi3
+  rotate: false
+  xy: 811, 161
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaflyi5
+  rotate: false
+  xy: 811, 161
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaflyi2
+  rotate: false
+  xy: 656, 32
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaflyi4
+  rotate: false
+  xy: 698, 31
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaflyi6
+  rotate: false
+  xy: 726, 86
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaflywingsbot
+  rotate: false
+  xy: 752, 86
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaflywingstop
+  rotate: false
+  xy: 723, 71
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaguardbottom
+  rotate: false
+  xy: 353, 130
+  size: 17, 15
+  orig: 17, 15
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaguardeye
+  rotate: false
+  xy: 749, 69
+  size: 17, 15
+  orig: 17, 15
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaguardeye2
+  rotate: false
+  xy: 872, 140
+  size: 17, 15
+  orig: 17, 15
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaguardi1
+  rotate: false
+  xy: 891, 140
+  size: 17, 15
+  orig: 17, 15
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentapod
+  rotate: false
+  xy: 891, 140
+  size: 17, 15
+  orig: 17, 15
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaguardi3
+  rotate: false
+  xy: 891, 140
+  size: 17, 15
+  orig: 17, 15
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaguardi2
+  rotate: false
+  xy: 872, 123
+  size: 17, 15
+  orig: 17, 15
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentaguardi4
+  rotate: false
+  xy: 891, 123
+  size: 17, 15
+  orig: 17, 15
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentawarrioreye
+  rotate: false
+  xy: 589, 115
+  size: 23, 24
+  orig: 23, 24
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentawarrioreye2
+  rotate: false
+  xy: 589, 89
+  size: 23, 24
+  orig: 23, 24
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentawarriori1
+  rotate: false
+  xy: 698, 72
+  size: 23, 24
+  orig: 23, 24
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentawarriori2
+  rotate: false
+  xy: 586, 13
+  size: 23, 24
+  orig: 23, 24
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentawarriori4
+  rotate: false
+  xy: 586, 13
+  size: 23, 24
+  orig: 23, 24
+  offset: 0, 0
+  index: -1
+enemies/corruption/tentawarriori3
+  rotate: false
+  xy: 698, 46
+  size: 23, 24
+  orig: 23, 24
+  offset: 0, 0
+  index: -1
+enemies/frog
+  rotate: false
+  xy: 592, 2
+  size: 8, 9
+  orig: 8, 9
+  offset: 0, 0
+  index: -1
+enemies/frogjump
+  rotate: false
+  xy: 497, 167
+  size: 10, 9
+  orig: 10, 9
+  offset: 0, 0
+  index: -1
+enemies/goldfrog
+  rotate: false
+  xy: 582, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+enemies/golem
+  rotate: false
+  xy: 838, 93
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+enemies/golem-armless
+  rotate: false
+  xy: 852, 93
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+enemies/golem-arms
+  rotate: false
+  xy: 866, 93
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+enemies/shade
+  rotate: false
+  xy: 976, 185
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+error
+  rotate: false
+  xy: 824, 93
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+items/aetherstaff
+  rotate: false
+  xy: 768, 69
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/aetherstaff-item
+  rotate: false
+  xy: 253, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/amberstaff
+  rotate: false
+  xy: 966, 119
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/amberstaff-item
+  rotate: false
+  xy: 263, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/ascendarmor-item
+  rotate: false
+  xy: 273, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/densearmor-item
+  rotate: false
+  xy: 343, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/densearmoritem
+  rotate: false
+  xy: 343, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/fusionstaff
+  rotate: false
+  xy: 894, 92
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/fusionstaff-item
+  rotate: false
+  xy: 572, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/hellarmor-item
+  rotate: false
+  xy: 179, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/icesword
+  rotate: false
+  xy: 894, 75
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/icesword-item
+  rotate: false
+  xy: 189, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/icon-armor
+  rotate: false
+  xy: 602, 3
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/icon-ranged_weapon
+  rotate: false
+  xy: 612, 3
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/icon-soul
+  rotate: false
+  xy: 490, 3
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/icon-weapon
+  rotate: false
+  xy: 500, 3
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/juggernautarmor-item
+  rotate: false
+  xy: 779, 69
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/lancesword
+  rotate: false
+  xy: 905, 77
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/lancesword-item
+  rotate: false
+  xy: 1014, 46
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/lightsoul-item
+  rotate: false
+  xy: 1014, 36
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/marblesword
+  rotate: false
+  xy: 625, 24
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/marblesword-item
+  rotate: false
+  xy: 1014, 26
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/orbstaff
+  rotate: false
+  xy: 639, 12
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/orbstaff-item
+  rotate: false
+  xy: 678, 21
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/phasesword
+  rotate: false
+  xy: 650, 1
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/phasesword-item
+  rotate: false
+  xy: 739, 3
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/phaseswordDX
+  rotate: false
+  xy: 229, 91
+  size: 11, 36
+  orig: 11, 36
+  offset: 0, 0
+  index: -1
+items/planestaff
+  rotate: false
+  xy: 661, 1
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/planestaff-item
+  rotate: false
+  xy: 749, 3
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/reflectarmor-item
+  rotate: false
+  xy: 769, 3
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/scorchstaff
+  rotate: false
+  xy: 672, 1
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/scorchstaff-item
+  rotate: false
+  xy: 783, 55
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/silversword
+  rotate: false
+  xy: 905, 60
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/silversword-item
+  rotate: false
+  xy: 793, 41
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/staff
+  rotate: false
+  xy: 894, 58
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/staff-item
+  rotate: false
+  xy: 803, 41
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/sword
+  rotate: false
+  xy: 905, 43
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/sword-item
+  rotate: false
+  xy: 813, 41
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+items/tentasword
+  rotate: false
+  xy: 1000, 67
+  size: 9, 15
+  orig: 9, 15
+  offset: 0, 0
+  index: -1
+items/tentasword-item
+  rotate: false
+  xy: 823, 41
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+objects/barrel
+  rotate: false
+  xy: 836, 107
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/bigrocks
+  rotate: false
+  xy: 556, 20
+  size: 14, 18
+  orig: 14, 18
+  offset: 0, 0
+  index: -1
+objects/blocks1
+  rotate: false
+  xy: 934, 108
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/blocks2
+  rotate: false
+  xy: 948, 108
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/blocks3
+  rotate: false
+  xy: 977, 112
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/bluesapling1
+  rotate: false
+  xy: 528, 1
+  size: 11, 17
+  orig: 11, 17
+  offset: 0, 0
+  index: -1
+objects/bluesapling2
+  rotate: false
+  xy: 541, 1
+  size: 11, 17
+  orig: 11, 17
+  offset: 0, 0
+  index: -1
+objects/bluesapling3
+  rotate: false
+  xy: 481, 157
+  size: 14, 19
+  orig: 14, 19
+  offset: 0, 0
+  index: -1
+objects/bluetree1
+  rotate: false
+  xy: 791, 176
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+objects/bluetree2
+  rotate: false
+  xy: 199, 41
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+objects/booktable
+  rotate: false
+  xy: 721, 151
+  size: 32, 12
+  orig: 32, 12
+  offset: 0, 0
+  index: -1
+objects/table
+  rotate: false
+  xy: 721, 151
+  size: 32, 12
+  orig: 32, 12
+  offset: 0, 0
+  index: -1
+objects/bottles
+  rotate: false
+  xy: 991, 112
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/bottles1
+  rotate: false
+  xy: 991, 112
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/bottles1shadow
+  rotate: false
+  xy: 742, 41
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/bottlesshadow
+  rotate: false
+  xy: 742, 41
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/bottles2
+  rotate: false
+  xy: 1005, 114
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/bottles2shadow
+  rotate: false
+  xy: 756, 41
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/bottles3
+  rotate: false
+  xy: 962, 105
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/bottles3shadow
+  rotate: false
+  xy: 769, 55
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/bottles4
+  rotate: false
+  xy: 741, 55
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/bottles4shadow
+  rotate: false
+  xy: 770, 41
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/bottles5
+  rotate: false
+  xy: 755, 55
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/bottles5shadow
+  rotate: false
+  xy: 976, 98
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/brokenbarrel
+  rotate: false
+  xy: 756, 27
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/candle1
+  rotate: false
+  xy: 283, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+objects/candle2
+  rotate: false
+  xy: 293, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+objects/candle3
+  rotate: false
+  xy: 303, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+objects/candle4
+  rotate: false
+  xy: 313, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+objects/candle5
+  rotate: false
+  xy: 323, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+objects/candle6
+  rotate: false
+  xy: 333, 1
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+objects/language
+  rotate: false
+  xy: 121, 91
+  size: 105, 5
+  orig: 105, 5
+  offset: 0, 0
+  index: -1
+objects/rocks1
+  rotate: false
+  xy: 958, 49
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/rocks2
+  rotate: false
+  xy: 972, 42
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/rocks3
+  rotate: false
+  xy: 986, 42
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+objects/spawncircle
+  rotate: false
+  xy: 841, 157
+  size: 68, 68
+  orig: 68, 68
+  offset: 0, 0
+  index: -1
+objects/torchstand
+  rotate: false
+  xy: 1014, 56
+  size: 8, 12
+  orig: 8, 12
+  offset: 0, 0
+  index: -1
+objects/wallmoss1
+  rotate: false
+  xy: 656, 47
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+objects/wallmoss2
+  rotate: false
+  xy: 670, 47
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+objects/wallmoss3
+  rotate: false
+  xy: 684, 47
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+place
+  rotate: false
+  xy: 817, 65
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+player
+  rotate: false
+  xy: 759, 3
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+player/hand
+  rotate: false
+  xy: 1011, 67
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1
+player/player-back
+  rotate: false
+  xy: 789, 3
+  size: 7, 8
+  orig: 7, 8
+  offset: 0, 0
+  index: -1
+player/player-back-walk1
+  rotate: false
+  xy: 784, 45
+  size: 7, 8
+  orig: 7, 8
+  offset: 0, 0
+  index: -1
+player/player-back-walk2
+  rotate: false
+  xy: 784, 35
+  size: 7, 8
+  orig: 7, 8
+  offset: 0, 0
+  index: -1
+player/player-front
+  rotate: false
+  xy: 833, 41
+  size: 7, 8
+  orig: 7, 8
+  offset: 0, 0
+  index: -1
+player/player-front-walk1
+  rotate: false
+  xy: 842, 41
+  size: 7, 8
+  orig: 7, 8
+  offset: 0, 0
+  index: -1
+player/player-front-walk2
+  rotate: false
+  xy: 851, 41
+  size: 7, 8
+  orig: 7, 8
+  offset: 0, 0
+  index: -1
+player/player-side
+  rotate: false
+  xy: 860, 41
+  size: 7, 8
+  orig: 7, 8
+  offset: 0, 0
+  index: -1
+player/player-side-walk1
+  rotate: false
+  xy: 869, 41
+  size: 7, 8
+  orig: 7, 8
+  offset: 0, 0
+  index: -1
+player/player-side-walk2
+  rotate: false
+  xy: 878, 41
+  size: 7, 8
+  orig: 7, 8
+  offset: 0, 0
+  index: -1
+shadows/shadow10
+  rotate: false
+  xy: 478, 5
+  size: 10, 6
+  orig: 10, 6
+  offset: 0, 0
+  index: -1
+shadows/shadow100
+  rotate: false
+  xy: 509, 194
+  size: 100, 29
+  orig: 100, 29
+  offset: 0, 0
+  index: -1
+shadows/shadow102
+  rotate: false
+  xy: 377, 162
+  size: 102, 29
+  orig: 102, 29
+  offset: 0, 0
+  index: -1
+shadows/shadow104
+  rotate: false
+  xy: 247, 130
+  size: 104, 29
+  orig: 104, 29
+  offset: 0, 0
+  index: -1
+shadows/shadow106
+  rotate: false
+  xy: 121, 98
+  size: 106, 29
+  orig: 106, 29
+  offset: 0, 0
+  index: -1
+shadows/shadow108
+  rotate: false
+  xy: 1, 65
+  size: 108, 30
+  orig: 108, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow110
+  rotate: false
+  xy: 529, 225
+  size: 110, 30
+  orig: 110, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow112
+  rotate: false
+  xy: 395, 193
+  size: 112, 30
+  orig: 112, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow114
+  rotate: false
+  xy: 261, 161
+  size: 114, 30
+  orig: 114, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow116
+  rotate: false
+  xy: 129, 129
+  size: 116, 30
+  orig: 116, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow118
+  rotate: false
+  xy: 1, 97
+  size: 118, 30
+  orig: 118, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow12
+  rotate: false
+  xy: 497, 157
+  size: 12, 7
+  orig: 12, 7
+  offset: 0, 0
+  index: -1
+shadows/shadow120
+  rotate: false
+  xy: 407, 225
+  size: 120, 30
+  orig: 120, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow122
+  rotate: false
+  xy: 271, 193
+  size: 122, 30
+  orig: 122, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow124
+  rotate: false
+  xy: 135, 161
+  size: 124, 30
+  orig: 124, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow126
+  rotate: false
+  xy: 1, 129
+  size: 126, 30
+  orig: 126, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow128
+  rotate: false
+  xy: 277, 225
+  size: 128, 30
+  orig: 128, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow130
+  rotate: false
+  xy: 139, 193
+  size: 130, 30
+  orig: 130, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow132
+  rotate: false
+  xy: 1, 161
+  size: 132, 30
+  orig: 132, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow134
+  rotate: false
+  xy: 141, 225
+  size: 134, 30
+  orig: 134, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow136
+  rotate: false
+  xy: 1, 193
+  size: 136, 30
+  orig: 136, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow138
+  rotate: false
+  xy: 1, 225
+  size: 138, 30
+  orig: 138, 30
+  offset: 0, 0
+  index: -1
+shadows/shadow14
+  rotate: false
+  xy: 237, 1
+  size: 14, 8
+  orig: 14, 8
+  offset: 0, 0
+  index: -1
+shadows/shadow16
+  rotate: false
+  xy: 361, 7
+  size: 16, 9
+  orig: 16, 9
+  offset: 0, 0
+  index: -1
+shadows/shadow18
+  rotate: false
+  xy: 444, 1
+  size: 18, 10
+  orig: 18, 10
+  offset: 0, 0
+  index: -1
+shadows/shadow2
+  rotate: false
+  xy: 329, 101
+  size: 6, 4
+  orig: 6, 4
+  offset: 0, 0
+  index: -1
+shadows/shadow20
+  rotate: false
+  xy: 1003, 128
+  size: 20, 11
+  orig: 20, 11
+  offset: 0, 0
+  index: -1
+shadows/shadow22
+  rotate: false
+  xy: 353, 147
+  size: 22, 12
+  orig: 22, 12
+  offset: 0, 0
+  index: -1
+shadows/shadow24
+  rotate: false
+  xy: 755, 151
+  size: 24, 12
+  orig: 24, 12
+  offset: 0, 0
+  index: -1
+shadows/shadow26
+  rotate: false
+  xy: 481, 178
+  size: 26, 13
+  orig: 26, 13
+  offset: 0, 0
+  index: -1
+shadows/shadow28
+  rotate: false
+  xy: 611, 209
+  size: 28, 14
+  orig: 28, 14
+  offset: 0, 0
+  index: -1
+shadows/shadow30
+  rotate: false
+  xy: 689, 148
+  size: 30, 15
+  orig: 30, 15
+  offset: 0, 0
+  index: -1
+shadows/shadow32
+  rotate: false
+  xy: 619, 143
+  size: 32, 16
+  orig: 32, 16
+  offset: 0, 0
+  index: -1
+shadows/shadow34
+  rotate: false
+  xy: 653, 147
+  size: 34, 16
+  orig: 34, 16
+  offset: 0, 0
+  index: -1
+shadows/shadow36
+  rotate: false
+  xy: 199, 1
+  size: 36, 17
+  orig: 36, 17
+  offset: 0, 0
+  index: -1
+shadows/shadow38
+  rotate: false
+  xy: 579, 141
+  size: 38, 18
+  orig: 38, 18
+  offset: 0, 0
+  index: -1
+shadows/shadow4
+  rotate: false
+  xy: 337, 101
+  size: 6, 4
+  orig: 6, 4
+  offset: 0, 0
+  index: -1
+shadows/shadow40
+  rotate: false
+  xy: 514, 20
+  size: 40, 18
+  orig: 40, 18
+  offset: 0, 0
+  index: -1
+shadows/shadow42
+  rotate: false
+  xy: 199, 20
+  size: 42, 19
+  orig: 42, 19
+  offset: 0, 0
+  index: -1
+shadows/shadow44
+  rotate: false
+  xy: 976, 163
+  size: 44, 20
+  orig: 44, 20
+  offset: 0, 0
+  index: -1
+shadows/shadow46
+  rotate: false
+  xy: 977, 141
+  size: 46, 20
+  orig: 46, 20
+  offset: 0, 0
+  index: -1
+shadows/shadow48
+  rotate: false
+  xy: 329, 107
+  size: 48, 21
+  orig: 48, 21
+  offset: 0, 0
+  index: -1
+shadows/shadow50
+  rotate: false
+  xy: 516, 40
+  size: 50, 21
+  orig: 50, 21
+  offset: 0, 0
+  index: -1
+shadows/shadow52
+  rotate: false
+  xy: 457, 133
+  size: 52, 22
+  orig: 52, 22
+  offset: 0, 0
+  index: -1
+shadows/shadow54
+  rotate: false
+  xy: 516, 63
+  size: 54, 22
+  orig: 54, 22
+  offset: 0, 0
+  index: -1
+shadows/shadow56
+  rotate: false
+  xy: 303, 11
+  size: 56, 23
+  orig: 56, 23
+  offset: 0, 0
+  index: -1
+shadows/shadow58
+  rotate: false
+  xy: 243, 11
+  size: 58, 23
+  orig: 58, 23
+  offset: 0, 0
+  index: -1
+shadows/shadow6
+  rotate: false
+  xy: 345, 101
+  size: 6, 4
+  orig: 6, 4
+  offset: 0, 0
+  index: -1
+shadows/shadow60
+  rotate: false
+  xy: 509, 87
+  size: 60, 24
+  orig: 60, 24
+  offset: 0, 0
+  index: -1
+shadows/shadow62
+  rotate: false
+  xy: 511, 113
+  size: 62, 24
+  orig: 62, 24
+  offset: 0, 0
+  index: -1
+shadows/shadow64
+  rotate: false
+  xy: 911, 136
+  size: 64, 24
+  orig: 64, 24
+  offset: 0, 0
+  index: -1
+shadows/shadow66
+  rotate: false
+  xy: 511, 139
+  size: 66, 25
+  orig: 66, 25
+  offset: 0, 0
+  index: -1
+shadows/shadow68
+  rotate: false
+  xy: 444, 13
+  size: 68, 25
+  orig: 68, 25
+  offset: 0, 0
+  index: -1
+shadows/shadow70
+  rotate: false
+  xy: 444, 40
+  size: 70, 26
+  orig: 70, 26
+  offset: 0, 0
+  index: -1
+shadows/shadow72
+  rotate: false
+  xy: 717, 198
+  size: 72, 26
+  orig: 72, 26
+  offset: 0, 0
+  index: -1
+shadows/shadow74
+  rotate: false
+  xy: 641, 198
+  size: 74, 26
+  orig: 74, 26
+  offset: 0, 0
+  index: -1
+shadows/shadow76
+  rotate: false
+  xy: 509, 166
+  size: 76, 26
+  orig: 76, 26
+  offset: 0, 0
+  index: -1
+shadows/shadow78
+  rotate: false
+  xy: 377, 133
+  size: 78, 27
+  orig: 78, 27
+  offset: 0, 0
+  index: -1
+shadows/shadow8
+  rotate: false
+  xy: 111, 91
+  size: 8, 4
+  orig: 8, 4
+  offset: 0, 0
+  index: -1
+shadows/shadow80
+  rotate: false
+  xy: 247, 101
+  size: 80, 27
+  orig: 80, 27
+  offset: 0, 0
+  index: -1
+shadows/shadow82
+  rotate: false
+  xy: 95, 2
+  size: 82, 27
+  orig: 82, 27
+  offset: 0, 0
+  index: -1
+shadows/shadow84
+  rotate: false
+  xy: 99, 31
+  size: 84, 28
+  orig: 84, 28
+  offset: 0, 0
+  index: -1
+shadows/shadow86
+  rotate: false
+  xy: 111, 61
+  size: 86, 28
+  orig: 86, 28
+  offset: 0, 0
+  index: -1
+shadows/shadow88
+  rotate: false
+  xy: 929, 227
+  size: 88, 28
+  orig: 88, 28
+  offset: 0, 0
+  index: -1
+shadows/shadow90
+  rotate: false
+  xy: 837, 227
+  size: 90, 28
+  orig: 90, 28
+  offset: 0, 0
+  index: -1
+shadows/shadow92
+  rotate: false
+  xy: 1, 4
+  size: 92, 28
+  orig: 92, 28
+  offset: 0, 0
+  index: -1
+shadows/shadow94
+  rotate: false
+  xy: 741, 226
+  size: 94, 29
+  orig: 94, 29
+  offset: 0, 0
+  index: -1
+shadows/shadow96
+  rotate: false
+  xy: 1, 34
+  size: 96, 29
+  orig: 96, 29
+  offset: 0, 0
+  index: -1
+shadows/shadow98
+  rotate: false
+  xy: 641, 226
+  size: 98, 29
+  orig: 98, 29
+  offset: 0, 0
+  index: -1
+shapes/circle
+  rotate: false
+  xy: 911, 162
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+shapes/shape-3
+  rotate: false
+  xy: 249, 36
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+shapes/shape-4
+  rotate: false
+  xy: 314, 36
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+shapes/shape-5
+  rotate: false
+  xy: 379, 68
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+shapes/shape-6
+  rotate: false
+  xy: 379, 3
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+shapes/shape-7
+  rotate: false
+  xy: 444, 68
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1
+tiles/blackink0
+  rotate: false
+  xy: 850, 107
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/blackink1
+  rotate: false
+  xy: 910, 122
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/blackink2
+  rotate: false
+  xy: 924, 122
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/blackink3
+  rotate: false
+  xy: 938, 122
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/blackinknone
+  rotate: false
+  xy: 952, 122
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/blackweb0
+  rotate: false
+  xy: 864, 107
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/blackweb1
+  rotate: false
+  xy: 878, 109
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/blackweb2
+  rotate: false
+  xy: 892, 109
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/blackweb3
+  rotate: false
+  xy: 906, 108
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/blackwebnone
+  rotate: false
+  xy: 920, 108
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/brickshelf1
+  rotate: false
+  xy: 185, 11
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/brickshelf2
+  rotate: false
+  xy: 572, 37
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/brickshelf3
+  rotate: false
+  xy: 614, 91
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/brickwall
+  rotate: false
+  xy: 628, 93
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/brickwall1
+  rotate: false
+  xy: 642, 93
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/brickwall2
+  rotate: false
+  xy: 656, 97
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/brickwall3
+  rotate: false
+  xy: 670, 97
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/brickwalledge
+  rotate: false
+  xy: 990, 98
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/brickwalledgecorner
+  rotate: false
+  xy: 742, 27
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/cavefloor1
+  rotate: false
+  xy: 770, 27
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/caveflooredge
+  rotate: false
+  xy: 361, 18
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/cavewall
+  rotate: false
+  xy: 684, 97
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/cavewalledge
+  rotate: false
+  xy: 782, 93
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/cavewalledgecorner
+  rotate: false
+  xy: 796, 93
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/cobweb
+  rotate: false
+  xy: 698, 98
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/edge
+  rotate: false
+  xy: 810, 93
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/grass
+  rotate: false
+  xy: 880, 95
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/grassedge
+  rotate: false
+  xy: 554, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/marble1
+  rotate: false
+  xy: 905, 94
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/marble2
+  rotate: false
+  xy: 919, 94
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/marble3
+  rotate: false
+  xy: 933, 94
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/marble4
+  rotate: false
+  xy: 947, 94
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/marbleblock
+  rotate: false
+  xy: 571, 87
+  size: 12, 24
+  orig: 12, 24
+  offset: 0, 0
+  index: -1
+tiles/marbleedge
+  rotate: false
+  xy: 723, 53
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/marblepillar
+  rotate: false
+  xy: 575, 113
+  size: 12, 24
+  orig: 12, 24
+  offset: 0, 0
+  index: -1
+tiles/marbles
+  rotate: false
+  xy: 916, 80
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/marbles2
+  rotate: false
+  xy: 930, 80
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/marbles2edge
+  rotate: false
+  xy: 782, 143
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/marblesedge
+  rotate: false
+  xy: 782, 125
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/marker
+  rotate: false
+  xy: 800, 143
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/moss
+  rotate: false
+  xy: 944, 80
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/moss0
+  rotate: false
+  xy: 958, 77
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/moss02
+  rotate: false
+  xy: 625, 10
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/moss1
+  rotate: false
+  xy: 636, 29
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/moss12
+  rotate: false
+  xy: 724, 21
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/moss2
+  rotate: false
+  xy: 650, 18
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/moss22
+  rotate: false
+  xy: 779, 79
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/moss3
+  rotate: false
+  xy: 664, 18
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/moss32
+  rotate: false
+  xy: 793, 79
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/mossnone
+  rotate: false
+  xy: 807, 79
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/pgrass1
+  rotate: false
+  xy: 821, 79
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/pgrass2
+  rotate: false
+  xy: 835, 79
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/pgrass3
+  rotate: false
+  xy: 849, 79
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/pgrassdk1
+  rotate: false
+  xy: 863, 79
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/pgrassdk2
+  rotate: false
+  xy: 789, 65
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/pgrassdk3
+  rotate: false
+  xy: 803, 65
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/pgrassdkedge
+  rotate: false
+  xy: 782, 107
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/pgrassedge
+  rotate: false
+  xy: 800, 125
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/psoil1
+  rotate: false
+  xy: 831, 65
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/psoil2
+  rotate: false
+  xy: 845, 65
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/psoil3
+  rotate: false
+  xy: 859, 65
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/psoiledge
+  rotate: false
+  xy: 818, 143
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/pwall
+  rotate: false
+  xy: 572, 11
+  size: 12, 24
+  orig: 12, 24
+  offset: 0, 0
+  index: -1
+tiles/pwall2
+  rotate: false
+  xy: 712, 98
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/pwall3
+  rotate: false
+  xy: 726, 101
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/pwall4
+  rotate: false
+  xy: 740, 101
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/redcarpet
+  rotate: false
+  xy: 972, 70
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/redcarpetedge
+  rotate: false
+  xy: 800, 107
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/redcarpetinner
+  rotate: false
+  xy: 986, 70
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/redcarpetinneredge
+  rotate: false
+  xy: 873, 65
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/redcarpetinneredge2
+  rotate: false
+  xy: 873, 65
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/redcarpettrimb1
+  rotate: false
+  xy: 916, 66
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/redcarpettrimb2
+  rotate: false
+  xy: 930, 66
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/redcarpettriml1
+  rotate: false
+  xy: 944, 66
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/redcarpettriml2
+  rotate: false
+  xy: 958, 63
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/redcarpettrimr1
+  rotate: false
+  xy: 972, 56
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/redcarpettrimr2
+  rotate: false
+  xy: 986, 56
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/redcarpettrimt1
+  rotate: false
+  xy: 916, 52
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/redcarpettrimt2
+  rotate: false
+  xy: 930, 52
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/redrock
+  rotate: false
+  xy: 944, 52
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/redrockedge
+  rotate: false
+  xy: 818, 125
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/respawnpoint
+  rotate: false
+  xy: 818, 107
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/rubble
+  rotate: false
+  xy: 514, 1
+  size: 12, 17
+  orig: 12, 17
+  offset: 0, 0
+  index: -1
+tiles/shelfedge
+  rotate: false
+  xy: 916, 38
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/shelfedgecorner
+  rotate: false
+  xy: 930, 38
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/smallshelf
+  rotate: false
+  xy: 754, 101
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/smallshelf1
+  rotate: false
+  xy: 768, 101
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/smallshelf2
+  rotate: false
+  xy: 586, 39
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/startpoint
+  rotate: false
+  xy: 836, 139
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/stone
+  rotate: false
+  xy: 944, 38
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/stoneedge
+  rotate: false
+  xy: 836, 121
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/stonefloor1
+  rotate: false
+  xy: 958, 35
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/stonefloor2
+  rotate: false
+  xy: 972, 28
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/stonefloor3
+  rotate: false
+  xy: 986, 28
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/stonefloor4
+  rotate: false
+  xy: 1000, 53
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/stonefloor5
+  rotate: false
+  xy: 1000, 39
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/stonefloor_pattern
+  rotate: false
+  xy: 1000, 25
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/stoneflooredge
+  rotate: false
+  xy: 854, 139
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+tiles/stonewall
+  rotate: false
+  xy: 611, 13
+  size: 12, 24
+  orig: 12, 24
+  offset: 0, 0
+  index: -1
+tiles/tallbrickwall
+  rotate: false
+  xy: 600, 39
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/tallshelf
+  rotate: false
+  xy: 614, 41
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpet1
+  rotate: false
+  xy: 1003, 84
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpet2
+  rotate: false
+  xy: 1011, 70
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpet3
+  rotate: false
+  xy: 1004, 98
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpet4
+  rotate: false
+  xy: 688, 17
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpetb
+  rotate: false
+  xy: 702, 17
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpetedge
+  rotate: false
+  xy: 683, 3
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpetedge2
+  rotate: false
+  xy: 697, 3
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpetedge3
+  rotate: false
+  xy: 711, 3
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpetedge4
+  rotate: false
+  xy: 725, 7
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpetl
+  rotate: false
+  xy: 739, 13
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpetl2
+  rotate: false
+  xy: 753, 13
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpetmid
+  rotate: false
+  xy: 767, 13
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpetr
+  rotate: false
+  xy: 781, 13
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpetr2
+  rotate: false
+  xy: 793, 51
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/tatteredredcarpett
+  rotate: false
+  xy: 807, 51
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/thickmoss0
+  rotate: false
+  xy: 821, 51
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/thickmoss1
+  rotate: false
+  xy: 835, 51
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/thickmoss2
+  rotate: false
+  xy: 849, 51
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/thickmoss3
+  rotate: false
+  xy: 863, 51
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/thickmossnone
+  rotate: false
+  xy: 877, 51
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+tiles/verytallshelf
+  rotate: false
+  xy: 628, 43
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/verytallshelf-blank
+  rotate: false
+  xy: 642, 43
+  size: 12, 48
+  orig: 12, 48
+  offset: 0, 0
+  index: -1
+tiles/wall
+  rotate: false
+  xy: 464, 5
+  size: 12, 6
+  orig: 12, 6
+  offset: 0, 0
+  index: -1
+tiles/wallshadow
+  rotate: false
+  xy: 854, 121
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1

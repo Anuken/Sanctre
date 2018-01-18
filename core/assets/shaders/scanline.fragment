@@ -1,0 +1,47 @@
+#ifdef GL_ES
+precision mediump float;
+precision mediump int;
+#endif
+
+#define bounds 0.033
+
+uniform sampler2D u_texture;
+
+uniform float time;
+uniform vec2 resolution;
+uniform vec2 pos;
+
+varying vec4 v_color;
+varying vec2 v_texCoord;
+
+void main() {
+	vec2 coord = v_texCoord;
+	
+	vec4 color = texture2D(u_texture, coord);
+	
+	float ratio = resolution.x/resolution.y;
+	
+	float sr = bounds;
+	float ts = 1000.0;
+	float sign = (float(mod(float(int((time/ts / (sr*2.0)) + 1.0)), 2.0)) - 0.5) * 2.0;
+	float scan = pos.x - sr*sign + mod(time/ts, sr*2.0)*sign;
+	int x = int(coord.x * resolution.x);
+	int y = int(coord.y * resolution.y);
+	
+	float rat = 0.01;
+	if(coord.x < scan && mod(coord.y, rat) < rat/2.0){
+		color.a = 0.0;
+	}
+	
+	if(sin(distance(pos * vec2(1.0, 1.0/ratio), coord * vec2(1.0, 1.0/ratio))*100.0 + time/10.0) > 0.8 &&
+		color.a > 0.1){
+		color = vec4(0.5, 0.8, 1.0, 1.0);
+	}
+	
+	if(coord.x < scan + 0.001 && coord.x > scan && coord.x > pos.x - sr && abs(coord.y - pos.y) < sr*2.0){
+		color = vec4(0.0, 1.0, 1.0, 1.0);
+	}
+	
+	gl_FragColor = color;
+	
+}

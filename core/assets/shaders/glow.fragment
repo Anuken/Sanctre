@@ -1,0 +1,33 @@
+#ifdef GL_ES
+precision mediump float;
+precision mediump int;
+#endif
+
+uniform sampler2D u_texture;
+
+uniform float bounds;
+uniform float time;
+uniform vec2 resolution;
+uniform vec2 pos;
+uniform vec4 glowcolor;
+
+varying vec4 v_color;
+varying vec2 v_texCoord;
+
+void main() {
+	vec2 coord = v_texCoord;
+	
+	//coord.y = (coord.y - pos.y)*1.2 + pos.y;
+	
+	vec4 color = texture2D(u_texture, coord);
+	
+	float ratio = resolution.x/resolution.y;
+	
+	if(sin(distance(pos * vec2(1.0, 1.0/ratio), coord * vec2(1.0, 1.0/ratio))*100.0 + time/15.0) < -0.8 &&
+		color.a > 0.1){
+		color = glowcolor;
+	}
+	
+	gl_FragColor = color;
+	
+}
