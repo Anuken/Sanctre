@@ -70,6 +70,9 @@ public class Shade extends Enemy {
                 Draw.rect("circle", p.x, p.y, rad, rad);
             }
 
+            Shaders.distort.offsetx = x;
+            Shaders.distort.offsety = y;
+
             Graphics.beginShaders(Shaders.distort);
 
             Draw.grect("shade", x, y);

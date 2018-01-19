@@ -1,22 +1,25 @@
 package io.anuke.sanctre.entities;
 
 import com.badlogic.gdx.math.Vector2;
+import io.anuke.sanctre.graphics.Fx;
+import io.anuke.sanctre.graphics.Shaders;
 import io.anuke.sanctre.items.Item;
 import io.anuke.sanctre.items.Items;
-import io.anuke.ucore.core.Draw;
-import io.anuke.ucore.core.Inputs;
-import io.anuke.ucore.core.Timers;
+import io.anuke.ucore.core.*;
 import io.anuke.ucore.entities.SolidEntity;
 import io.anuke.ucore.util.Angles;
+import io.anuke.ucore.util.Mathf;
 
 import static io.anuke.sanctre.entities.Direction.*;
 
 public class Player extends Spark {
     static float speed = 0.7f;
+    static float hitdur = 8f;
 
     Direction direction = front;
     float walktime = 0f;
     Item weapon = Items.marbleSword;
+    float hittime;
 
     public Player(){
         hitbox.width = 4f;
@@ -26,12 +29,30 @@ public class Player extends Spark {
 
     @Override
     public boolean collides(SolidEntity other) {
-        return other instanceof Bullet && !(((Bullet) other).owner instanceof Player);
+        return hittime <= 0f && other instanceof Bullet && !(((Bullet) other).owner instanceof Player);
+    }
+
+    @Override
+    public void collision(SolidEntity other) {
+        super.collision(other);
+        if(other instanceof  Bullet) {
+            Bullet b = (Bullet)other;
+            float angle = other.angleTo(this);
+            if(b.getDamage() > 1) Effects.effect(Fx.bloodspatter, x, y, angle);
+            Effects.effect(Fx.bloodparticle, x, y, angle);
+            Effects.shake(4f, 3f, this);
+            Angles.translation(angle, 2f * b.getDamage());
+            impulse(Angles.vector);
+            hittime = 1f;
+        }
     }
 
     @Override
     public void draw(){
         draw(b -> {
+            Shaders.player.hittime = Mathf.clamp(hittime);
+            Shaders.player.color.set(Fx.blood);
+
             float cx = x, cy = y;
             x = (int)x;
             y = (int)y;
@@ -46,6 +67,8 @@ public class Player extends Spark {
                 weapon.draw(this);
             }
 
+            Graphics.beginShaders(Shaders.player);
+
             Draw.grect("player-" + direction.texture +
                     (walktime > 0 ? "-walk" + (1 + (int)(walktime / 10f) % 2) : ""), x, y, direction.flipped);
 
@@ -56,6 +79,8 @@ public class Player extends Spark {
             }else{
                 getDirection(Angles.mouseAngle(x, y + 5f));
             }
+
+            Graphics.endShaders();
 
             if(!drawBefore){
                 weapon.draw(this);
@@ -106,6 +131,10 @@ public class Player extends Spark {
             walktime += Timers.delta();
         }else{
             walktime = 0f;
+        }
+
+        if(hittime > 0){
+            hittime -= 1f/hitdur;
         }
     }
 

@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import io.anuke.sanctre.entities.FacetEffect;
 import io.anuke.sanctre.graphics.BlockRenderer;
+import io.anuke.sanctre.graphics.DecalRenderer;
 import io.anuke.sanctre.graphics.LightRenderer;
 import io.anuke.ucore.core.Core;
 import io.anuke.ucore.core.Draw;
@@ -27,6 +28,7 @@ import static io.anuke.ucore.core.Core.cameraScale;
 public class Renderer extends RendererModule {
     BlockRenderer blocks;
     LightRenderer lights;
+    DecalRenderer decals;
 
     public Surface darkSurface;
 
@@ -34,6 +36,7 @@ public class Renderer extends RendererModule {
         atlas = new Atlas("sprites.atlas");
         blocks = new BlockRenderer();
         lights = new LightRenderer();
+        decals = new DecalRenderer();
 
         cameraScale = 3;
         pixelate();
@@ -80,6 +83,7 @@ public class Renderer extends RendererModule {
         Graphics.surface();
 
         blocks.drawFloor();
+        decals.draw();
         blocks.drawBlocks();
 
         Facets.instance().renderAll();
@@ -88,6 +92,10 @@ public class Renderer extends RendererModule {
     @Override
     public void resize(){
         lights.resize();
+    }
+
+    public DecalRenderer decals() {
+        return decals;
     }
 
     private void drawHitboxes(){

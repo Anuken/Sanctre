@@ -12,6 +12,7 @@ public class Shaders{
 	public static final Glow glow = new Glow();
 	public static final Scanline scanLine = new Scanline();
 	public static final Distort distort = new Distort();
+	public static final PlayerShader player = new PlayerShader();
 	
 	public static class Outline extends Shader{
 		public Color color = new Color();
@@ -24,6 +25,21 @@ public class Shaders{
 		public void apply(){
 			shader.setUniformf("u_color", color);
 			shader.setUniformf("u_texsize", Tmp.v1.set(region.getTexture().getWidth(), region.getTexture().getHeight()));
+		}
+	}
+
+	public static class PlayerShader extends Shader{
+		public Color color = new Color();
+		public float hittime = 0f;
+
+		public PlayerShader(){
+			super("player", "outline");
+		}
+
+		@Override
+		public void apply(){
+			shader.setUniformf("u_hitcolor", color);
+			shader.setUniformf("u_hittime", hittime);
 		}
 	}
 	

@@ -104,7 +104,7 @@ public class Sword extends Weapon {
                 if(b.distanceTo(player.x, player.y + height) <= length*2f && valid){
                     b.velocity.setAngle(b.angleTo(player.x, player.y + height) + 180f);
                     b.velocity.scl(1.1f);
-                    b.velocity.add(player.velocity.cpy().scl(0.6f));
+                    b.velocity.add(player.velocity.cpy().scl(0.5f));
                     Effects.effect(Fx.swordspark, b.x, b.y, b.angle());
                     swingreload = -1f;
                 }
