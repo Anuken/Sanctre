@@ -2,6 +2,7 @@ package io.anuke.sanctre.entities;
 
 import com.badlogic.gdx.math.Vector2;
 import io.anuke.sanctre.graphics.Fx;
+import io.anuke.sanctre.graphics.SColors;
 import io.anuke.sanctre.graphics.Shaders;
 import io.anuke.sanctre.items.Item;
 import io.anuke.sanctre.items.Items;
@@ -51,7 +52,7 @@ public class Player extends Spark {
     public void draw(){
         draw(b -> {
             Shaders.player.hittime = Mathf.clamp(hittime);
-            Shaders.player.color.set(Fx.blood);
+            Shaders.player.color.set(SColors.blood);
 
             float cx = x, cy = y;
             x = (int)x;

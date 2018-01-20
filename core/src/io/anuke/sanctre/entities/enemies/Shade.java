@@ -24,8 +24,11 @@ public class Shade extends Enemy {
         emitter.yMin = 5f;
         emitter.xRange = 10f;
         emitter.particleLife = 120f;
+        emitter.relative = true;
 
         hitbox.bounds(0, 24f, 32, 42f);
+        hitshake = 3f;
+        height = 24f;
     }
 
     @Override
@@ -67,11 +70,12 @@ public class Shade extends Enemy {
 
             for(Particle p : emitter.particles){
                 float rad = p.sfract() * 10f;
-                Draw.rect("circle", p.x, p.y, rad, rad);
+                Draw.rect("circle", x + p.x, y + p.y, rad, rad);
             }
 
             Shaders.distort.offsetx = x;
             Shaders.distort.offsety = y;
+            Shaders.distort.hittime = hittime;
 
             Graphics.beginShaders(Shaders.distort);
 
@@ -99,8 +103,12 @@ public class Shade extends Enemy {
         target = Vars.player;
 
         if(Timers.get(this, "reload", 50)){
-            shoot(Bullets.orb, angleTo(target));
+            Angles.shotgun(5, 5f, angleTo(target, height), f -> {
+                shoot(Bullets.lineb, f);
+            });
         }
+
+        //move(Mathf.cos(y, 10f, 2f), Mathf.sin(x, 10f, 2f));
 
     }
 

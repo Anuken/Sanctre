@@ -11,6 +11,7 @@ public class Emitter {
     public float xRange = 6f, yMin = 0f, yMax = 20f;
     public float speed = 0.4f;
     public boolean emit = true;
+    public boolean relative = false;
 
     public Emitter(int amount){
         this(amount, 6f, 6f);
@@ -93,7 +94,11 @@ public class Emitter {
         }
 
         void reset(Entity entity){
-            set(Mathf.range(xRange) + entity.x, Mathf.random(yMin, yMax) + entity.y);
+            if(relative){
+                set(Mathf.range(xRange), Mathf.random(yMin, yMax));
+            }else{
+                set(Mathf.range(xRange) + entity.x, Mathf.random(yMin, yMax) + entity.y);
+            }
             life = 0f;
         }
     }

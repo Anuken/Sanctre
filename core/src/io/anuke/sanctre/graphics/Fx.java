@@ -3,12 +3,10 @@ package io.anuke.sanctre.graphics;
 import com.badlogic.gdx.graphics.Color;
 import io.anuke.ucore.core.Draw;
 import io.anuke.ucore.core.Effects.Effect;
-import io.anuke.ucore.graphics.Hue;
 import io.anuke.ucore.util.Angles;
 import io.anuke.ucore.util.Mathf;
 
 public class Fx {
-    public static final Color blood = Hue.lightness(0.6f);
 
     public static final Effect
 
@@ -25,7 +23,7 @@ public class Fx {
         Draw.lineShot(e.x, e.y, e.rotation + 180f, 9, e.fract(), 7f, 2f, 0.88f);
     }),
     bloodspatter = new DecalEffect(2f, e -> {
-        Draw.color(blood);
+        Draw.color(SColors.blood);
 
         Angles.randLenVectors(e.id, e.powfract(), 5, 6f, e.rotation, 100f, (x, y, f) -> {
             float rad = f * 6f + 3f;
@@ -44,12 +42,24 @@ public class Fx {
         Draw.reset();
     }),
     bloodparticle = new Effect(7f, e -> {
-        Draw.color(blood);
+        Draw.color(SColors.blood);
 
         Angles.randLenVectors(e.id, 5, e.ifract() * 25f, e.rotation, 100f, (x, y) -> {
             float rad = 5f * e.fract() + 2f;
             Draw.rect("circle", e.x + x, e.y + y, rad, rad);
         });
+
+        Draw.reset();
+    }),
+    darkparticle = new DarkEffect(8f, e -> {
+        Draw.color(SColors.shade);
+
+        Angles.randLenVectors(e.id, 6, e.ifract() * 27f, e.rotation, 100f, (x, y) -> {
+            float rad = 6f * e.fract() + 2f;
+            Draw.rect("circle", e.x + x, e.y + y, rad, rad);
+        });
+
+        Draw.lineShot(e.x, e.y, e.rotation, 9, e.fract(), 42f, 1.3f, 0.88f);
 
         Draw.reset();
     });

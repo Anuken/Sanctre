@@ -83,12 +83,18 @@ public class Sword extends Weapon {
                 Angles.translation(angle, length);
                 points.add(new Vector3(Angles.x(), Angles.y(), 0f));
                 swingtime -= Mathf.sign(direction) * f;
+                if(f <= 0f){
+                    player.shoot(bullet, player.x + Angles.x(), player.y + height + Angles.y(), angle);
+                }
             }
 
             //deflect bullets
             Entities.getNearby(player.x, player.y + height, length*4f, e -> {
                 if(!(e instanceof Bullet)) return;
                 Bullet b = (Bullet)e;
+
+                if(b.owner instanceof Player) return;
+
                 Hitbox box = e.hitbox;
                 float angle = Angles.angle(player.x, player.y + height, e.x + box.offsetx, e.y + box.offsety);
 

@@ -15,15 +15,16 @@ import io.anuke.ucore.core.Graphics;
 import io.anuke.ucore.entities.Entities;
 import io.anuke.ucore.entities.Entity;
 import io.anuke.ucore.entities.SolidEntity;
+import io.anuke.ucore.facet.FacetLayer;
 import io.anuke.ucore.facet.FacetLayerHandler;
 import io.anuke.ucore.facet.Facets;
+import io.anuke.ucore.facet.Sorter;
 import io.anuke.ucore.graphics.Atlas;
 import io.anuke.ucore.graphics.Surface;
 import io.anuke.ucore.modules.RendererModule;
 import io.anuke.ucore.util.Tmp;
 
-import static io.anuke.ucore.core.Core.atlas;
-import static io.anuke.ucore.core.Core.cameraScale;
+import static io.anuke.ucore.core.Core.*;
 
 public class Renderer extends RendererModule {
     BlockRenderer blocks;
@@ -31,6 +32,7 @@ public class Renderer extends RendererModule {
     DecalRenderer decals;
 
     public Surface darkSurface;
+    public Surface blurSurface;
 
     public Renderer(){
         atlas = new Atlas("sprites.atlas");
@@ -41,8 +43,22 @@ public class Renderer extends RendererModule {
         cameraScale = 3;
         pixelate();
 
+        blurSurface = Graphics.createSurface();
+
         FacetLayerHandler hand = new FacetLayerHandler();
-        darkSurface = hand.allDrawLayers.peek().surface;
+
+        FacetLayer darkLayer = new FacetLayer("darkness", Sorter.dark, 0){
+            @Override
+            public void begin(){
+                Graphics.surface(surface);
+                Draw.color(0f, 0f, 0f, 0.99f);
+                Draw.rect(blurSurface.texture(), camera.position.x, camera.position.y, camera.viewportWidth, -camera.viewportHeight);
+                Draw.reset();
+            }
+        };
+
+        hand.allDrawLayers.set(hand.allDrawLayers.size -1, darkLayer);
+        darkSurface = darkLayer.surface;
 
         Facets.instance().setLayerManager(hand);
 
@@ -79,6 +95,11 @@ public class Renderer extends RendererModule {
 
     @Override
     public void draw(){
+
+        Graphics.surface(blurSurface);
+        Draw.rect(darkSurface.texture(), camera.position.x, camera.position.y, camera.viewportWidth, -camera.viewportHeight);
+        Graphics.surface();
+
         Graphics.surface(darkSurface);
         Graphics.surface();
 

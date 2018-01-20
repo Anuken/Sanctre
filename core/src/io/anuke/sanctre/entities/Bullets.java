@@ -25,7 +25,7 @@ public abstract class Bullets extends BaseBulletType<Bullet> {
     orb = new Bullets() {
         {
             lifetime = 120f;
-            speed = 2f;
+            speed = 3f;
             dark = true;
         }
 
@@ -33,6 +33,22 @@ public abstract class Bullets extends BaseBulletType<Bullet> {
         public void draw(Bullet b) {
             Draw.color(SColors.taint);
             Draw.circle(b.x, b.y, 5f);
+            Draw.reset();
+        }
+    },
+    lineb = new Bullets() {
+        {
+            lifetime = 120f;
+            speed = 4f;
+            dark = true;
+        }
+
+        @Override
+        public void draw(Bullet b) {
+            Draw.color(SColors.taint);
+            Draw.lineAngleCenter(b.x, b.y, b.angle(), 7f);
+            Draw.thick(2f);
+            Draw.lineAngleCenter(b.x, b.y, b.angle(), 5f);
             Draw.reset();
         }
     },
@@ -66,5 +82,6 @@ public abstract class Bullets extends BaseBulletType<Bullet> {
     public boolean dark;
     public boolean block;
     public Effect hitEffect = Fx.swordspark;
+    public boolean line;
 
 }

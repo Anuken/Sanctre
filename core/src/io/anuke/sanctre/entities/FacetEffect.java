@@ -2,6 +2,7 @@ package io.anuke.sanctre.entities;
 
 import com.badlogic.gdx.graphics.Color;
 import io.anuke.sanctre.Vars;
+import io.anuke.sanctre.graphics.DarkEffect;
 import io.anuke.sanctre.graphics.DecalEffect;
 import io.anuke.ucore.core.Effects;
 import io.anuke.ucore.core.Effects.Effect;
@@ -33,7 +34,8 @@ public class FacetEffect extends EffectEntity {
 
     @Override
     public void draw(){
-        facet = new BaseFacet(y - 20f, renderer instanceof DecalEffect ? Sorter.tile : Sorter.object, d -> {
+        facet = new BaseFacet(renderer instanceof DarkEffect ? Sorter.dark : y - 20f,
+                renderer instanceof DecalEffect ? Sorter.tile : Sorter.object, d -> {
             Effects.renderEffect(id, renderer, color, time, rotation, x, y);
         });
         Facets.instance().add(facet);
