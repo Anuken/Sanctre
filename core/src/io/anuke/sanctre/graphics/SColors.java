@@ -7,5 +7,6 @@ public class SColors {
     public static final Color
     shade = Color.valueOf("3f3f3f"),
     taint = Color.valueOf("882ddc"),
-    blood = Hue.lightness(0.6f);
+    taintLight = Color.valueOf("b566ff"),
+    blood = Hue.lightness(0.3f);
 }

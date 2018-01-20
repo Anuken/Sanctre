@@ -1,5 +1,6 @@
 package io.anuke.sanctre.entities.enemies;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import io.anuke.sanctre.Vars;
 import io.anuke.sanctre.entities.Bullets;
@@ -18,6 +19,9 @@ import io.anuke.ucore.util.Mathf;
 import io.anuke.ucore.util.Tmp;
 
 public class Shade extends Enemy {
+    static final float shootduration = 10f;
+    float shootTime;
+    float eyeHeight = 11f;
 
     public Shade(){
         emitter = new Emitter(30);
@@ -86,10 +90,17 @@ public class Shade extends Enemy {
 
             Graphics.endShaders();
 
-            Draw.color(SColors.taint);
-            Draw.thick(1f);
+            Draw.color(Color.ORANGE);
 
-            Draw.polygon(x, y + 34f, 3, 5, Timers.time());
+            Draw.alpha(shootTime);
+            Draw.thick(5f * shootTime);
+            Draw.polygon(x, y + 34f, 3, 5 + shootTime*2f, Timers.time());
+
+            Draw.color(SColors.taint, Color.WHITE, shootTime);
+            Draw.thick(1f + shootTime * 2f);
+
+            Draw.alpha(1f);
+            Draw.polygon(x, y + 34f, 3, 5 + shootTime*2f, Timers.time());
 
             Draw.reset();
 
@@ -99,17 +110,40 @@ public class Shade extends Enemy {
     }
 
     @Override
+    public void shoot(Bullets type, float angle){
+        Vector2 v = displace();
+        shoot(type, x + v.x * 2f, y + height + v.y * 2f + eyeHeight, angle);
+        shootTime = 1f;
+    }
+
+    public float angleTo(){
+        Vector2 v = displace();
+        return angleTo(target, v.x * 2f, height + v.y * 2f + eyeHeight);
+
+    }
+
+    @Override
     public void move(){
+        if(shootTime > 0f){
+            shootTime -= Timers.delta() * 1f / shootduration;
+            shootTime = Mathf.clamp(shootTime);
+        }
+
         target = Vars.player;
 
         if(Timers.get(this, "reload", 50)){
-            Angles.shotgun(5, 5f, angleTo(target, height), f -> {
-                shoot(Bullets.lineb, f);
+            Angles.shotgun(1, 5f, angleTo(), f -> {
+                shoot(Bullets.laser, f);
             });
         }
 
         //move(Mathf.cos(y, 10f, 2f), Mathf.sin(x, 10f, 2f));
 
+    }
+
+    private Vector2 displace(){
+        Vector2 vec = Tmp.v3.set(x, y).sub(Core.camera.position.x, Core.camera.position.y).scl(1f/22f).limit(11f);
+        return vec;
     }
 
 

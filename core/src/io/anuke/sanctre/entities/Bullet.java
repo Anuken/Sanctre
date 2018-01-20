@@ -1,5 +1,6 @@
 package io.anuke.sanctre.entities;
 
+import com.badlogic.gdx.math.Rectangle;
 import io.anuke.ucore.core.Effects;
 import io.anuke.ucore.entities.BulletEntity;
 import io.anuke.ucore.entities.Entity;
@@ -7,6 +8,10 @@ import io.anuke.ucore.entities.SolidEntity;
 import io.anuke.ucore.facet.BaseFacet;
 import io.anuke.ucore.facet.FacetList;
 import io.anuke.ucore.facet.Sorter;
+import io.anuke.ucore.util.Angles;
+import io.anuke.ucore.util.Mathf;
+import io.anuke.ucore.util.Physics;
+import io.anuke.ucore.util.Tmp;
 
 public class Bullet extends BulletEntity {
     public FacetList facets = new FacetList();
@@ -14,6 +19,10 @@ public class Bullet extends BulletEntity {
     public Bullet(Bullets type, Entity owner, float x, float y, float angle){
         super(type, owner, angle);
         set(x, y);
+
+        if(type.line){
+            hitbox.setSize(type.length*2f);
+        }
     }
 
     @Override
@@ -22,9 +31,15 @@ public class Bullet extends BulletEntity {
 
         if(other instanceof Bullet){
             Bullet bullet = (Bullet)other;
-            return (bullet.type().block || type.block) && bullet.owner != owner;
+            return (bullet.type().block || type.block) && !(type().line || bullet.type().line) && bullet.owner != owner;
         }else{
-            return other != owner;
+            if(type.line){
+                Rectangle hit = other.hitbox.getRect(other.x, other.y);
+                Angles.translation(angle(), type.length);
+                return Physics.raycastRect(x, y, x + Angles.x(), y + Angles.y(), hit) != null;
+            }else {
+                return other != owner;
+            }
         }
     }
 
@@ -36,7 +51,7 @@ public class Bullet extends BulletEntity {
             }
             float angle = angleTo(other);
             velocity.setAngle(angle + 180f);
-        }else{
+        }else if(!type().line){
             remove();
             type.removed(this);
         }
@@ -54,6 +69,17 @@ public class Bullet extends BulletEntity {
 
     @Override
     public void removed(){
+        if(type().line){
+            float ang = angle();
+            Angles.translation(ang, 1f);
+            Tmp.v1.set(Angles.vector);
+            for(int i = 0; i < type().effects; i ++){
+                float fract = i / (float)type().effects;
+                Angles.vector.set(Tmp.v1).scl(type().length * fract);
+                Effects.effect(type().lineEffect, x + Angles.x() + Mathf.range(3f),
+                        y + Angles.y() + Mathf.range(3f), ang + Mathf.range(15f));
+            }
+        }
         facets.free();
     }
 

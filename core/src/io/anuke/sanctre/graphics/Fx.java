@@ -51,6 +51,34 @@ public class Fx {
 
         Draw.reset();
     }),
+    sparkspatter = new DecalEffect(2f, e -> {
+        Draw.color(SColors.blood);
+
+        Draw.thick(2f);
+
+        Angles.randLenVectors(e.id, e.ifract(), 5, 5f, e.rotation, 100f, (x, y, f) -> {
+            Draw.lineAngle(e.x + x, e.y + y, Mathf.atan2(x, y), 5f * f);
+        });
+
+        Draw.thick(1f);
+
+        Angles.randLenVectors(e.id, e.ifract(), 7, 15f, e.rotation, 100f, (x, y, f) -> {
+            Draw.lineAngle(e.x + x, e.y + y, Mathf.atan2(x, y), 3f);
+        });
+
+        Draw.reset();
+    }),
+    sparkparticle = new Effect(8f, e -> {
+        Draw.color(SColors.blood);
+
+        Draw.thick(2f);
+
+        Angles.randLenVectors(e.id, e.ifract(), 7, 20f, e.rotation, 100f, (x, y, f) -> {
+            Draw.lineAngle(e.x + x, e.y + y, Mathf.atan2(x, y), 5f * e.fract());
+        });
+
+        Draw.reset();
+    }),
     darkparticle = new DarkEffect(8f, e -> {
         Draw.color(SColors.shade);
 
@@ -61,6 +89,12 @@ public class Fx {
 
         Draw.lineShot(e.x, e.y, e.rotation, 9, e.fract(), 42f, 1.3f, 0.88f);
 
+        Draw.reset();
+    }),
+    laserspark = new DarkEffect(12f, e -> {
+        Draw.color(SColors.taint);
+        Draw.thick(2f * e.fract());
+        Draw.lineAngleCenter(e.x, e.y, e.rotation, 10f);
         Draw.reset();
     });
 }

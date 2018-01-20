@@ -39,8 +39,8 @@ public class Player extends Spark {
         if(other instanceof  Bullet) {
             Bullet b = (Bullet)other;
             float angle = other.angleTo(this);
-            if(b.getDamage() > 1) Effects.effect(Fx.bloodspatter, x, y, angle);
-            Effects.effect(Fx.bloodparticle, x, y, angle);
+            if(b.getDamage() > 1) Effects.effect(Fx.sparkspatter, x, y, angle);
+            Effects.effect(Fx.sparkparticle, x, y, angle);
             Effects.shake(4f, 3f, this);
             Angles.translation(angle, 2f * b.getDamage());
             impulse(Angles.vector);
