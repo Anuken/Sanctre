@@ -3,16 +3,16 @@ package io.anuke.sanctre.entities.enemies;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import io.anuke.sanctre.Vars;
-import io.anuke.sanctre.entities.Bullets;
+import io.anuke.sanctre.entities.BulletType;
 import io.anuke.sanctre.entities.Enemy;
+import io.anuke.sanctre.entities.bullets.ShadeBullets;
 import io.anuke.sanctre.graphics.Emitter;
 import io.anuke.sanctre.graphics.Emitter.Particle;
 import io.anuke.sanctre.graphics.SColors;
 import io.anuke.sanctre.graphics.Shaders;
-import io.anuke.ucore.core.Core;
-import io.anuke.ucore.core.Draw;
-import io.anuke.ucore.core.Graphics;
-import io.anuke.ucore.core.Timers;
+import io.anuke.sanctre.graphics.effects.EnemyFx;
+import io.anuke.ucore.core.*;
+import io.anuke.ucore.core.Effects.Effect;
 import io.anuke.ucore.facet.Sorter;
 import io.anuke.ucore.util.Angles;
 import io.anuke.ucore.util.Mathf;
@@ -22,6 +22,7 @@ public class Shade extends Enemy {
     static final float shootduration = 10f;
     float shootTime;
     float eyeHeight = 11f;
+    Phase phase = Phase.laser;
 
     public Shade(){
         emitter = new Emitter(30);
@@ -90,17 +91,17 @@ public class Shade extends Enemy {
 
             Graphics.endShaders();
 
-            Draw.color(Color.ORANGE);
+            Draw.color(SColors.taintLight);
 
             Draw.alpha(shootTime);
             Draw.thick(5f * shootTime);
-            Draw.polygon(x, y + 34f, 3, 5 + shootTime*2f, Timers.time());
+            Draw.polygon(x, y + 34f, 3, 5, Timers.time());
 
             Draw.color(SColors.taint, Color.WHITE, shootTime);
             Draw.thick(1f + shootTime * 2f);
 
             Draw.alpha(1f);
-            Draw.polygon(x, y + 34f, 3, 5 + shootTime*2f, Timers.time());
+            Draw.polygon(x, y + 34f, 3, 5, Timers.time());
 
             Draw.reset();
 
@@ -110,10 +111,15 @@ public class Shade extends Enemy {
     }
 
     @Override
-    public void shoot(Bullets type, float angle){
+    public void shoot(BulletType type, float angle){
         Vector2 v = displace();
         shoot(type, x + v.x * 2f, y + height + v.y * 2f + eyeHeight, angle);
         shootTime = 1f;
+    }
+
+    public void effect(Effect effect, float angle){
+        Vector2 v = displace();
+        Effects.effect(effect, x + v.x * 2f, y + height + v.y * 2f + eyeHeight, angle);
     }
 
     public float angleTo(){
@@ -131,14 +137,10 @@ public class Shade extends Enemy {
 
         target = Vars.player;
 
-        if(Timers.get(this, "reload", 50)){
-            Angles.shotgun(1, 5f, angleTo(), f -> {
-                shoot(Bullets.laser, f);
-            });
-        }
-
-        //move(Mathf.cos(y, 10f, 2f), Mathf.sin(x, 10f, 2f));
-
+        phase.update(this);
+        //if(Mathf.chance(0.01 * Timers.delta())){
+        //    phase = Phase.values()[Mathf.mod(phase.ordinal() + 1, Phase.values().length)];
+        //}
     }
 
     private Vector2 displace(){
@@ -146,5 +148,68 @@ public class Shade extends Enemy {
         return vec;
     }
 
+    enum Phase{
+        circle{
+            float angle = 0f;
 
+            public void update(Shade s){
+
+                if(Timers.get(s, "reload", 2)){
+                    Angles.circle(4, c -> {
+                        Angles.shotgun(3, 20f, angle + c, f -> {
+                            s.shoot(ShadeBullets.orb, f);
+                        });
+                    });
+
+                    angle += 5f;
+                }
+
+                s.move(Mathf.cos(s.y, 10f, 5f), Mathf.sin(s.x, 10f, 5f));
+            }
+        },
+        laser{
+            float time = 0f;
+            float reload = 170f;
+
+            public void update(Shade s){
+                if(time < reload){
+                    time += Timers.delta();
+                    if(time > 40f && Timers.get(s, "lfx1", 10) && time < reload - 30f){
+                        s.effect(EnemyFx.lasercharge, 0);
+                    }
+
+                    if(time > reload - 40f && Timers.get(s, "lfx2", reload)){
+                        s.effect(EnemyFx.laserprecharge, 0);
+                    }
+                }else{
+                    s.effect(EnemyFx.lasersine, s.angleTo());
+                    s.shoot(ShadeBullets.biglaser, s.angleTo());
+                    Effects.shake(12f, 13f, s.x, s.y);
+                    time = 0f;
+                }
+
+                s.shootTime = time / reload;
+            }
+        },
+        balls{
+            float angle = 0f;
+
+            public void update(Shade s){
+
+                if(Timers.get(s, "balls", 10)){
+                    for(int i = 0; i < 5; i ++){
+                        Timers.run(20f + i * 7f, () -> {
+                            Angles.circle(4, c -> {
+                                s.shoot(ShadeBullets.ball, c + angle);
+                            });
+
+                            angle += 5f;
+                        });
+                    }
+                }
+            }
+        };
+
+        public abstract void update(Shade s);
+    }
 }

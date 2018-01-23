@@ -34,7 +34,7 @@ public class FacetEffect extends EffectEntity {
 
     @Override
     public void draw(){
-        facet = new BaseFacet(renderer instanceof DarkEffect ? Sorter.dark : y - 20f,
+        facet = new BaseFacet(renderer instanceof DarkEffect ? Sorter.dark + ((DarkEffect)renderer).shift : y - 20f,
                 renderer instanceof DecalEffect ? Sorter.tile : Sorter.object, d -> {
             Effects.renderEffect(id, renderer, color, time, rotation, x, y);
         });

@@ -47,11 +47,11 @@ public class Spark extends DestructibleEntity {
         return v;
     }
 
-    public void shoot(Bullets type, float angle){
+    public void shoot(BulletType type, float angle){
         shoot(type, x, y + height, angle);
     }
 
-    public void shoot(Bullets type, float x, float y, float angle){
+    public void shoot(BulletType type, float x, float y, float angle){
         new Bullet(type, this, x, y, angle).add();
     }
 

@@ -1,9 +1,9 @@
 package io.anuke.sanctre.entities;
 
 import com.badlogic.gdx.math.Vector2;
-import io.anuke.sanctre.graphics.Fx;
 import io.anuke.sanctre.graphics.SColors;
 import io.anuke.sanctre.graphics.Shaders;
+import io.anuke.sanctre.graphics.effects.Fx;
 import io.anuke.sanctre.items.Item;
 import io.anuke.sanctre.items.Items;
 import io.anuke.ucore.core.*;
@@ -14,7 +14,7 @@ import io.anuke.ucore.util.Mathf;
 import static io.anuke.sanctre.entities.Direction.*;
 
 public class Player extends Spark {
-    static float speed = 0.7f;
+    static float speed = 0.9f;
     static float hitdur = 8f;
 
     Direction direction = front;
@@ -26,6 +26,7 @@ public class Player extends Spark {
         hitbox.width = 4f;
         hitbox.height = 8f;
         hitbox.offsety -= 1f;
+        drag = 0.3f;
     }
 
     @Override
@@ -40,7 +41,8 @@ public class Player extends Spark {
             Bullet b = (Bullet)other;
             float angle = other.angleTo(this);
             if(b.getDamage() > 1) Effects.effect(Fx.sparkspatter, x, y, angle);
-            Effects.effect(Fx.sparkparticle, x, y, angle);
+            for(int i = 0; i < 3; i ++)
+                Effects.effect(Fx.hitparticle, x, y, angle + Mathf.range(30f));
             Effects.shake(4f, 3f, this);
             Angles.translation(angle, 2f * b.getDamage());
             impulse(Angles.vector);

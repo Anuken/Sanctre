@@ -1,6 +1,9 @@
-package io.anuke.sanctre.graphics;
+package io.anuke.sanctre.graphics.effects;
 
 import com.badlogic.gdx.graphics.Color;
+import io.anuke.sanctre.graphics.DarkEffect;
+import io.anuke.sanctre.graphics.DecalEffect;
+import io.anuke.sanctre.graphics.SColors;
 import io.anuke.ucore.core.Draw;
 import io.anuke.ucore.core.Effects.Effect;
 import io.anuke.ucore.util.Angles;
@@ -79,22 +82,9 @@ public class Fx {
 
         Draw.reset();
     }),
-    darkparticle = new DarkEffect(8f, e -> {
-        Draw.color(SColors.shade);
-
-        Angles.randLenVectors(e.id, 6, e.ifract() * 27f, e.rotation, 100f, (x, y) -> {
-            float rad = 6f * e.fract() + 2f;
-            Draw.rect("circle", e.x + x, e.y + y, rad, rad);
-        });
-
-        Draw.lineShot(e.x, e.y, e.rotation, 9, e.fract(), 42f, 1.3f, 0.88f);
-
-        Draw.reset();
-    }),
-    laserspark = new DarkEffect(12f, e -> {
+    hitparticle = new DarkEffect(7f, 1f, e -> {
         Draw.color(SColors.taint);
-        Draw.thick(2f * e.fract());
-        Draw.lineAngleCenter(e.x, e.y, e.rotation, 10f);
+        Draw.lineShotFade(e.x, e.y, e.rotation, 9, e.fract(), 42f, 1.3f, 0.88f, 1f);
         Draw.reset();
     });
 }

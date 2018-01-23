@@ -37,6 +37,7 @@ public class Control extends Module{
         });
 
 		player = new Player().add();
+		Effects.setShakeFalloff(50000f);
 	}
 
 	@Override

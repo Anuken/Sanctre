@@ -5,9 +5,10 @@ import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import io.anuke.sanctre.entities.Bullet;
-import io.anuke.sanctre.entities.Bullets;
+import io.anuke.sanctre.entities.BulletType;
 import io.anuke.sanctre.entities.Player;
-import io.anuke.sanctre.graphics.Fx;
+import io.anuke.sanctre.entities.bullets.WeaponBullets;
+import io.anuke.sanctre.graphics.effects.Fx;
 import io.anuke.sanctre.items.Weapon;
 import io.anuke.ucore.core.Draw;
 import io.anuke.ucore.core.Effects;
@@ -24,11 +25,11 @@ public class Sword extends Weapon {
     public float height = 4f;
     public float length = 14f;
     public float basethick = 7f;
-    public float swingspeed = 45f;
+    public float swingspeed = 30f;
     public float dashthick = 15f;
     public float dashspeed = 34f;
     public float lungeSpeed = 14f;
-    public Bullets bullet = Bullets.slash;
+    public BulletType bullet = WeaponBullets.slash;
     public Color startColor = Color.WHITE, endColor = Color.LIGHT_GRAY;
 
     float swingtime = 0f;

@@ -1,7 +1,7 @@
 package io.anuke.sanctre.entities;
 
+import io.anuke.sanctre.graphics.effects.EnemyFx;
 import io.anuke.sanctre.graphics.Emitter;
-import io.anuke.sanctre.graphics.Fx;
 import io.anuke.ucore.core.Effects;
 import io.anuke.ucore.core.Effects.Effect;
 import io.anuke.ucore.core.Timers;
@@ -10,7 +10,7 @@ import io.anuke.ucore.util.Angles;
 
 public class Enemy extends Spark {
     public static final float hitduration = 7f;
-    public Effect hiteffect = Fx.darkparticle;
+    public Effect hiteffect = EnemyFx.darkparticle;
     public float hitshake = 0f;
 
     public float hittime = 0f;

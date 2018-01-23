@@ -16,7 +16,7 @@ import io.anuke.ucore.util.Tmp;
 public class Bullet extends BulletEntity {
     public FacetList facets = new FacetList();
 
-    public Bullet(Bullets type, Entity owner, float x, float y, float angle){
+    public Bullet(BulletType type, Entity owner, float x, float y, float angle){
         super(type, owner, angle);
         set(x, y);
 
@@ -27,7 +27,7 @@ public class Bullet extends BulletEntity {
 
     @Override
     public boolean collides(SolidEntity other){
-        Bullets type = (Bullets)this.type;
+        BulletType type = (BulletType)this.type;
 
         if(other instanceof Bullet){
             Bullet bullet = (Bullet)other;
@@ -59,7 +59,9 @@ public class Bullet extends BulletEntity {
 
     @Override
     public void added(){
-        Bullets type = (Bullets)this.type;
+        super.added();
+
+        BulletType type = (BulletType)this.type;
 
         facets.add(new BaseFacet(type.dark ? Sorter.dark : y - 10f, Sorter.object, p->{
             if(!type.dark) p.layer = y - 10f;
@@ -69,7 +71,7 @@ public class Bullet extends BulletEntity {
 
     @Override
     public void removed(){
-        if(type().line){
+        if(type().line && type().lineEffect != null){
             float ang = angle();
             Angles.translation(ang, 1f);
             Tmp.v1.set(Angles.vector);
@@ -83,8 +85,8 @@ public class Bullet extends BulletEntity {
         facets.free();
     }
 
-    public Bullets type(){
-        return (Bullets)type;
+    public BulletType type(){
+        return (BulletType)type;
     }
 
 }
