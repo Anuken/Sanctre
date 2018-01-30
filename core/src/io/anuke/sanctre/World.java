@@ -24,7 +24,6 @@ public class World extends Module{
 		loadMap("arena");
 
 		Watcher.watch(Gdx.files.internal("maps/arena.tmx"), true, file -> {
-			UCore.log("changed");
 			loadMap(file.nameWithoutExtension());
 			Vars.renderer.lights().clear();
 			Vars.renderer.reset();

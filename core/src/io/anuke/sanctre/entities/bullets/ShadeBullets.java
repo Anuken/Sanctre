@@ -4,8 +4,11 @@ import io.anuke.sanctre.entities.Bullet;
 import io.anuke.sanctre.entities.BulletType;
 import io.anuke.sanctre.graphics.SColors;
 import io.anuke.sanctre.graphics.effects.EnemyFx;
-import io.anuke.ucore.core.Draw;
+import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.core.Effects;
+import io.anuke.ucore.graphics.Fill;
+import io.anuke.ucore.graphics.Lines;
+import io.anuke.ucore.graphics.Shapes;
 import io.anuke.ucore.util.Angles;
 import io.anuke.ucore.util.Mathf;
 
@@ -30,25 +33,25 @@ public class ShadeBullets {
             float f = b.fract()*2f;
 
             Draw.rect("circle", b.x, b.y, 6f*f, 6f*f);
-            Draw.thick(3f * f);
-            Draw.lineAngle(b.x, b.y, b.angle(), length);
+            Lines.stroke(3f * f);
+            Lines.lineAngle(b.x, b.y, b.angle(), length);
 
-            Draw.thick(2f * f);
-            Draw.lineAngle(b.x, b.y, b.angle(), length + 6f);
-            Draw.thick(1f * f);
-            Draw.lineAngle(b.x, b.y, b.angle(), length + 12f);
+            Lines.stroke(2f * f);
+            Lines.lineAngle(b.x, b.y, b.angle(), length + 6f);
+            Lines.stroke(1f * f);
+            Lines.lineAngle(b.x, b.y, b.angle(), length + 12f);
 
             Draw.color(SColors.taintLight, SColors.taint, b.ifract());
 
             for(int i : Mathf.signs){
-                Draw.lineShot(b.x, b.y, b.angle() + 70 * i, 3, b.fract(), 12f, 2f, 0.5f);
-                Draw.lineShot(b.x, b.y, b.angle() + 30 * i, 3, b.fract(), 30f, 1.3f, 0.5f);
+                Shapes.lineShot(b.x, b.y, b.angle() + 70 * i, 3, b.fract(), 12f, 2f, 0.5f);
+                Shapes.lineShot(b.x, b.y, b.angle() + 30 * i, 3, b.fract(), 30f, 1.3f, 0.5f);
             }
 
             Draw.color(SColors.taintLight);
-            Draw.thick(1.5f * f);
+            Lines.stroke(1.5f * f);
             Draw.rect("circle", b.x, b.y, 3f*f, 3f*f);
-            Draw.lineAngle(b.x, b.y, b.angle(), length);
+            Lines.lineAngle(b.x, b.y, b.angle(), length);
 
             Draw.reset();
         }
@@ -71,28 +74,28 @@ public class ShadeBullets {
             float f = b.fract()*5f;
 
             Draw.rect("circle", b.x, b.y, 6f*f, 6f*f);
-            Draw.thick(3f * f);
-            Draw.lineAngle(b.x, b.y, b.angle(), length);
+            Lines.stroke(3f * f);
+            Lines.lineAngle(b.x, b.y, b.angle(), length);
 
-            Draw.thick(2f * f);
-            Draw.lineAngle(b.x, b.y, b.angle(), length + 8f);
-            Draw.thick(1f * f);
-            Draw.lineAngle(b.x, b.y, b.angle(), length + 16f);
+            Lines.stroke(2f * f);
+            Lines.lineAngle(b.x, b.y, b.angle(), length + 8f);
+            Lines.stroke(1f * f);
+            Lines.lineAngle(b.x, b.y, b.angle(), length + 16f);
 
             Draw.color(SColors.taintLight, SColors.taint, b.ifract() > 0.5f ? 1f : 0f);
 
             float pf = Mathf.pow(b.fract(), 3f);
 
             for(int i : Mathf.signs){
-                Draw.lineShotFade(b.x, b.y, b.angle() + 45 * i, 5, pf, 50f, 1.5f, 0.8f, 1f);
-                Draw.lineShotFade(b.x, b.y, b.angle() + 135 * i, 5, pf, 50f, 1.5f, 0.8f, 1f);
+                Shapes.lineShotFade(b.x, b.y, b.angle() + 45 * i, 5, pf, 50f, 1.5f, 0.8f, 1f);
+                Shapes.lineShotFade(b.x, b.y, b.angle() + 135 * i, 5, pf, 50f, 1.5f, 0.8f, 1f);
                 //Draw.lineShotFade(b.x, b.y, b.angle() + 15 * i, 3, b.fract(), 80f, 2f, 0.5f);
             }
 
             Draw.color(SColors.taintLight);
-            Draw.thick(1.5f * f);
+            Lines.stroke(1.5f * f);
             Draw.rect("circle", b.x, b.y, 4f*f, 4f*f);
-            Draw.lineAngle(b.x, b.y, b.angle(), length);
+            Lines.lineAngle(b.x, b.y, b.angle(), length);
 
             Draw.reset();
         }
@@ -100,7 +103,7 @@ public class ShadeBullets {
     orb = new BulletType() {
         {
             lifetime = 110f;
-            speed = 4f;
+            speed = 1f;
             dark = true;
             despawneffect = EnemyFx.taintwave;
         }
@@ -108,14 +111,14 @@ public class ShadeBullets {
         @Override
         public void draw(Bullet b) {
             Draw.color(SColors.taint);
-            Draw.thick(2f);
-            Draw.polygon(b.x, b.y, 3, 4f, b.angle() + 30);
+            Lines.stroke(2f);
+            Lines.poly(b.x, b.y, 3, 4f, b.angle() + 30);
             Draw.reset();
         }
     },
     ball = new BulletType() {
         {
-            lifetime = 50f;
+            lifetime = 60f;
             speed = 4f;
             dark = true;
             despawneffect = EnemyFx.taintwave;
@@ -124,17 +127,15 @@ public class ShadeBullets {
         @Override
         public void draw(Bullet b) {
             Draw.color(SColors.taint);
-            Draw.thick(2f);
-            Draw.circle(b.x, b.y, 6f);
+            Lines.stroke(2f);
+            Fill.circle(b.x, b.y, 6f);
             Draw.reset();
         }
 
         @Override
         public void removed(Bullet b) {
             Effects.shake(3f, 3f, b);
-            Angles.circle(5, f -> {
-                new Bullet(orb, b.owner, b.x, b.y, f + b.angle()).add();
-            });
+            Angles.circle(5, f -> new Bullet(orb, b.owner, b.x, b.y, f + b.angle()).add());
         }
 
         @Override
@@ -152,9 +153,9 @@ public class ShadeBullets {
         @Override
         public void draw(Bullet b) {
             Draw.color(SColors.taint);
-            Draw.lineAngleCenter(b.x, b.y, b.angle(), 7f);
-            Draw.thick(2f);
-            Draw.lineAngleCenter(b.x, b.y, b.angle(), 5f);
+            Lines.lineAngleCenter(b.x, b.y, b.angle(), 7f);
+            Lines.stroke(2f);
+            Lines.lineAngleCenter(b.x, b.y, b.angle(), 5f);
             Draw.reset();
         }
     };

@@ -1,7 +1,7 @@
 package io.anuke.sanctre.entities;
 
 import com.badlogic.gdx.math.Vector2;
-import io.anuke.ucore.core.Draw;
+import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.core.Timers;
 import io.anuke.ucore.entities.DestructibleEntity;
 import io.anuke.ucore.facet.BaseFacet;

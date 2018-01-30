@@ -9,7 +9,7 @@ import io.anuke.sanctre.entities.TileEntity;
 import io.anuke.sanctre.world.Block;
 import io.anuke.sanctre.world.BlockType;
 import io.anuke.sanctre.world.Tile;
-import io.anuke.ucore.core.Draw;
+import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.core.Timers;
 import io.anuke.ucore.facet.BaseFacet;
 import io.anuke.ucore.facet.FacetList;
@@ -17,6 +17,7 @@ import io.anuke.ucore.facet.Sorter;
 import io.anuke.ucore.facet.SpriteFacet;
 import io.anuke.ucore.function.Predicate;
 import io.anuke.ucore.graphics.Hue;
+import io.anuke.ucore.graphics.Lines;
 import io.anuke.ucore.lights.Light;
 import io.anuke.ucore.util.Angles;
 import io.anuke.ucore.util.Geometry;
@@ -374,8 +375,8 @@ public class BlockTypes{
 							Draw.rect(randRune(cindex + 1, tile), tile.worldx() + Angles.x(), tile.worldy() + Angles.y());
 						});
 					}else{
-						Draw.thick(shape.thickness);
-						Draw.polygon(shape.sides, tile.worldx(), tile.worldy(), shape.radius, shape.rotation + spin);
+						Lines.stroke(shape.thickness);
+						Lines.poly(shape.sides, tile.worldx(), tile.worldy(), shape.radius, shape.rotation + spin);
 					}
 
 					index ++;
@@ -431,9 +432,9 @@ public class BlockTypes{
 
 			new BaseFacet(p -> {
 				Draw.color(darkColor);
-				Draw.polygon(tile.worldx(), tile.worldy() + Mathf.sin(Timers.time(), 16f, 2f) + 10f, sides, 4f, Timers.time() / 1f);
+				Lines.poly(tile.worldx(), tile.worldy() + Mathf.sin(Timers.time(), 16f, 2f) + 10f, sides, 4f, Timers.time() / 1f);
 				Draw.color(lightColor);
-				Draw.polygon(tile.worldx(), tile.worldy() + Mathf.sin(Timers.time(), 16f, 2f) + 11f, sides, 4f, Timers.time() / 1f);
+				Lines.poly(tile.worldx(), tile.worldy() + Mathf.sin(Timers.time(), 16f, 2f) + 11f, sides, 4f, Timers.time() / 1f);
 				Draw.color();
 				p.layer = tile.worldy() - 2;
 			}).add(list);

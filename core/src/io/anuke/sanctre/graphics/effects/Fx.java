@@ -4,8 +4,10 @@ import com.badlogic.gdx.graphics.Color;
 import io.anuke.sanctre.graphics.DarkEffect;
 import io.anuke.sanctre.graphics.DecalEffect;
 import io.anuke.sanctre.graphics.SColors;
-import io.anuke.ucore.core.Draw;
+import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.core.Effects.Effect;
+import io.anuke.ucore.graphics.Lines;
+import io.anuke.ucore.graphics.Shapes;
 import io.anuke.ucore.util.Angles;
 import io.anuke.ucore.util.Mathf;
 
@@ -22,8 +24,8 @@ public class Fx {
         });
     }),
     dash = new Effect(8f, e -> {
-        Draw.lineShot(e.x, e.y, e.rotation, 9, e.fract(), 42f, 1.6f, 0.88f);
-        Draw.lineShot(e.x, e.y, e.rotation + 180f, 9, e.fract(), 7f, 2f, 0.88f);
+        Shapes.lineShot(e.x, e.y, e.rotation, 9, e.fract(), 42f, 1.6f, 0.88f);
+        Shapes.lineShot(e.x, e.y, e.rotation + 180f, 9, e.fract(), 7f, 2f, 0.88f);
     }),
     bloodspatter = new DecalEffect(2f, e -> {
         Draw.color(SColors.blood);
@@ -39,7 +41,7 @@ public class Fx {
         });
 
         Angles.randLenVectors(e.id, e.ifract(), 5, 13f, e.rotation, 100f, (x, y, f) -> {
-            Draw.lineAngle(e.x + x, e.y + y, Mathf.atan2(x, y), Mathf.dst(x, y));
+            Lines.lineAngle(e.x + x, e.y + y, Mathf.atan2(x, y), Mathf.dst(x, y));
         });
 
         Draw.reset();
@@ -57,16 +59,16 @@ public class Fx {
     sparkspatter = new DecalEffect(2f, e -> {
         Draw.color(SColors.blood);
 
-        Draw.thick(2f);
+        Lines.stroke(2f);
 
         Angles.randLenVectors(e.id, e.ifract(), 5, 5f, e.rotation, 100f, (x, y, f) -> {
-            Draw.lineAngle(e.x + x, e.y + y, Mathf.atan2(x, y), 5f * f);
+            Lines.lineAngle(e.x + x, e.y + y, Mathf.atan2(x, y), 5f * f);
         });
 
-        Draw.thick(1f);
+        Lines.stroke(1f);
 
         Angles.randLenVectors(e.id, e.ifract(), 7, 15f, e.rotation, 100f, (x, y, f) -> {
-            Draw.lineAngle(e.x + x, e.y + y, Mathf.atan2(x, y), 3f);
+            Lines.lineAngle(e.x + x, e.y + y, Mathf.atan2(x, y), 3f);
         });
 
         Draw.reset();
@@ -74,17 +76,17 @@ public class Fx {
     sparkparticle = new Effect(8f, e -> {
         Draw.color(SColors.blood);
 
-        Draw.thick(2f);
+        Lines.stroke(2f);
 
         Angles.randLenVectors(e.id, e.ifract(), 7, 20f, e.rotation, 100f, (x, y, f) -> {
-            Draw.lineAngle(e.x + x, e.y + y, Mathf.atan2(x, y), 5f * e.fract());
+            Lines.lineAngle(e.x + x, e.y + y, Mathf.atan2(x, y), 5f * e.fract());
         });
 
         Draw.reset();
     }),
     hitparticle = new DarkEffect(7f, 1f, e -> {
         Draw.color(SColors.taint);
-        Draw.lineShotFade(e.x, e.y, e.rotation, 9, e.fract(), 42f, 1.3f, 0.88f, 1f);
+        Shapes.lineShotFade(e.x, e.y, e.rotation, 9, e.fract(), 42f, 1.3f, 0.88f, 1f);
         Draw.reset();
     });
 }

@@ -10,12 +10,14 @@ import io.anuke.sanctre.entities.Player;
 import io.anuke.sanctre.entities.bullets.WeaponBullets;
 import io.anuke.sanctre.graphics.effects.Fx;
 import io.anuke.sanctre.items.Weapon;
-import io.anuke.ucore.core.Draw;
+import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.core.Effects;
 import io.anuke.ucore.core.Inputs;
 import io.anuke.ucore.core.Timers;
 import io.anuke.ucore.entities.Entities;
 import io.anuke.ucore.entities.Hitbox;
+import io.anuke.ucore.graphics.CapStyle;
+import io.anuke.ucore.graphics.Lines;
 import io.anuke.ucore.util.Angles;
 import io.anuke.ucore.util.Mathf;
 
@@ -134,7 +136,7 @@ public class Sword extends Weapon {
 
         Angles.translation(angle, 1.5f);
 
-        Draw.borect(name, player.x, player.y + height, angle - 90);
+        Draw.grect(name, player.x, player.y + height, angle - 90);
 
         Angles.vector.setLength(2f);
         Draw.rect("hand", player.x + Angles.x(), player.y + height + Angles.y());
@@ -156,8 +158,8 @@ public class Sword extends Weapon {
             if(i != points.size-1) {
                 Vector3 next = points.get(i + 1);
 
-                Draw.thick(thick);
-                Draw.lineUncap(offsetx + cur.x, offsety + cur.y, offsetx + next.x, offsety + next.y, 1f);
+                Lines.stroke(thick);
+                Lines.line(offsetx + cur.x, offsety + cur.y, offsetx + next.x, offsety + next.y, CapStyle.none, 1f);
             }
 
             cur.z += 1f/swingduration;
@@ -177,8 +179,8 @@ public class Sword extends Weapon {
             if(i != dashes.size-1) {
                 Vector3 next = dashes.get(i + 1);
 
-                Draw.thick(thick);
-                Draw.lineUncap(offsetx + cur.x, offsety + cur.y, offsetx + next.x, offsety + next.y, 1f);
+                Lines.stroke(thick);
+                Lines.line(offsetx + cur.x, offsety + cur.y, offsetx + next.x, offsety + next.y, CapStyle.none, 1f);
             }else{
                 float rad = thick*0.75f;
                 Draw.rect("circle", cur.x, cur.y, rad, rad);

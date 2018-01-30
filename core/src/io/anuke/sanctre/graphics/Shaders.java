@@ -91,6 +91,7 @@ public class Shaders{
 	
 	public static class Distort extends Shader{
 		public float offsetx, offsety, hittime;
+		public Color hitcolor = new Color();
 		
 		public Distort(){
 			super("distort", "outline");
@@ -99,10 +100,11 @@ public class Shaders{
 		@Override
 		public void apply(){
 			Core.camera.project(Tmp.v31.set(offsetx, offsety, 0));
-			shader.setUniformf("hittime", hittime);
-			shader.setUniformf("time", Timers.time());
-			shader.setUniformf("offset", Tmp.v31.x/Gdx.graphics.getWidth(), Tmp.v31.y/Gdx.graphics.getHeight());
-			shader.setUniformf("resolution", Tmp.v2.set(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
+			shader.setUniformf("u_hittime", hittime);
+			shader.setUniformf("u_time", Timers.time());
+			shader.setUniformf("u_hitcolor", hitcolor);
+			shader.setUniformf("u_offset", Tmp.v31.x/Gdx.graphics.getWidth(), Tmp.v31.y/Gdx.graphics.getHeight());
+			shader.setUniformf("u_resolution", Tmp.v2.set(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
 			shader.setUniformf("u_texsize", Tmp.v1.set(region.getTexture().getWidth(), region.getTexture().getHeight()));
 		}
 		

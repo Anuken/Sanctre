@@ -7,12 +7,13 @@ import io.anuke.sanctre.world.BlockType;
 import io.anuke.sanctre.world.Tile;
 import io.anuke.sanctre.world.blocks.BlockTypes.*;
 import io.anuke.sanctre.world.blocks.BlockTypes.LiveSpellCircle.SpellShape;
-import io.anuke.ucore.core.Draw;
+import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.facet.BaseFacet;
 import io.anuke.ucore.facet.FacetList;
 import io.anuke.ucore.facet.Sorter;
 import io.anuke.ucore.facet.SpriteFacet;
 import io.anuke.ucore.graphics.Hue;
+import io.anuke.ucore.graphics.Lines;
 import io.anuke.ucore.util.Angles;
 
 public class Blocks{
@@ -350,7 +351,7 @@ public class Blocks{
 		public void draw(Tile tile, float x, float y){
 			
 			Draw.color(Color.DARK_GRAY);
-			Draw.thick(2f);
+			Lines.stroke(2f);
 			
 			Draw.rect("spawncircle", x, y);
 			

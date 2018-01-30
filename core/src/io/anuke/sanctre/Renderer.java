@@ -9,7 +9,7 @@ import io.anuke.sanctre.graphics.BlockRenderer;
 import io.anuke.sanctre.graphics.DecalRenderer;
 import io.anuke.sanctre.graphics.LightRenderer;
 import io.anuke.ucore.core.Core;
-import io.anuke.ucore.core.Draw;
+import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.core.Effects;
 import io.anuke.ucore.core.Graphics;
 import io.anuke.ucore.entities.Entities;
@@ -19,9 +19,10 @@ import io.anuke.ucore.facet.FacetLayer;
 import io.anuke.ucore.facet.FacetLayerHandler;
 import io.anuke.ucore.facet.Facets;
 import io.anuke.ucore.facet.Sorter;
-import io.anuke.ucore.graphics.Atlas;
+import io.anuke.ucore.graphics.Lines;
 import io.anuke.ucore.graphics.Surface;
 import io.anuke.ucore.modules.RendererModule;
+import io.anuke.ucore.util.Atlas;
 import io.anuke.ucore.util.Tmp;
 
 import static io.anuke.ucore.core.Core.*;
@@ -126,11 +127,11 @@ public class Renderer extends RendererModule {
             SolidEntity s = (SolidEntity)entity;
             Rectangle r = s.hitbox.getRect(s.x, s.y);
             Draw.color(Color.GREEN);
-            Draw.linerect(r);
+            Lines.rect(r);
 
             r = s.hitboxTile.getRect(s.x, s.y);
             Draw.color(Color.ORANGE);
-            Draw.linerect(r);
+            Lines.rect(r);
         }
 
         Draw.reset();

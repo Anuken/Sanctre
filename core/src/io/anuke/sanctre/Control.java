@@ -5,12 +5,14 @@ import com.badlogic.gdx.Input.Keys;
 import io.anuke.sanctre.entities.Player;
 import io.anuke.sanctre.entities.enemies.Shade;
 import io.anuke.sanctre.files.Watcher;
+import io.anuke.sanctre.graphics.Shaders;
 import io.anuke.sanctre.world.Tile;
 import io.anuke.ucore.core.*;
 import io.anuke.ucore.entities.Entities;
-import io.anuke.ucore.graphics.Atlas;
 import io.anuke.ucore.modules.Module;
+import io.anuke.ucore.util.Atlas;
 import io.anuke.ucore.util.Input;
+import io.anuke.ucore.util.Log;
 
 import static io.anuke.sanctre.Vars.*;
 
@@ -32,9 +34,12 @@ public class Control extends Module{
         Watcher.watch(Gdx.files.internal("sprites/sprites.atlas"), true, f -> {
 			Core.atlas.dispose();
 			Core.atlas = new Atlas(f);
-			Draw.reloadRegion();
 			Vars.renderer.reset();
         });
+
+		Watcher.watch(Gdx.files.internal("shaders/distort.fragment"), true, f -> {
+			Shaders.distort.reload();
+		});
 
 		player = new Player().add();
 		Effects.setShakeFalloff(50000f);
@@ -44,7 +49,7 @@ public class Control extends Module{
 	public void init(){
 		Entities.initPhysics(0, 0, world.width() * tilesize, world.height() * tilesize);
 
-		Entities.setCollider(tilesize, world::solid, (x, y, rect) -> {
+		Entities.collisions().setCollider(tilesize, world::solid, (x, y, rect) -> {
 			Tile tile = world.get(x, y);
 			if(tile == null)
 				rect.setSize(tilesize).setCenter(x * tilesize, y * tilesize);
