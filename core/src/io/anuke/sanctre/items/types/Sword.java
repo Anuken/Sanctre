@@ -20,6 +20,7 @@ import io.anuke.ucore.graphics.CapStyle;
 import io.anuke.ucore.graphics.Lines;
 import io.anuke.ucore.util.Angles;
 import io.anuke.ucore.util.Mathf;
+import io.anuke.ucore.util.Tmp;
 
 public class Sword extends Weapon {
     public float arc = 150f;
@@ -58,8 +59,8 @@ public class Sword extends Weapon {
         }
 
         if(Inputs.keyTap("dash") && !swinging && dashreload <= 0f){
-            Angles.translation(Angles.mouseAngle(player.x, player.y + height), lungeSpeed);
-            player.impulseMove(Angles.vector);
+            Tmp.t1.trns(Angles.mouseAngle(player.x, player.y + height), lungeSpeed);
+            player.impulseMove(Tmp.t1);
             swingreload = 0f;
             dashreload = 1f;
             Effects.shake(2f, 3f, player);
@@ -83,11 +84,11 @@ public class Sword extends Weapon {
             for(float f = 0; f <= move; f += 0.02f){
                 swingtime += Mathf.sign(direction) * f;
                 float angle = Angles.mouseAngle(player.x, player.y + height) + getAngleOffset();
-                Angles.translation(angle, length);
-                points.add(new Vector3(Angles.x(), Angles.y(), 0f));
+                Tmp.t1.trns(angle, length);
+                points.add(new Vector3(Tmp.t1.x, Tmp.t1.y, 0f));
                 swingtime -= Mathf.sign(direction) * f;
                 if(f <= 0f){
-                    player.shoot(bullet, player.x + Angles.x(), player.y + height + Angles.y(), angle);
+                    player.shoot(bullet, player.x + Tmp.t1.x, player.y + height + Tmp.t1.y, angle);
                 }
             }
 
@@ -134,15 +135,15 @@ public class Sword extends Weapon {
     public void draw(Player player){
         float angle = Angles.mouseAngle(player.x, player.y + height) + getAngleOffset();
 
-        Angles.translation(angle, 1.5f);
+        Tmp.t1.trns(angle, 1.5f);
 
         Draw.grect(name, player.x, player.y + height, angle - 90);
 
-        Angles.vector.setLength(2f);
-        Draw.rect("hand", player.x + Angles.x(), player.y + height + Angles.y());
+        Tmp.t1.setLength(2f);
+        Draw.rect("hand", player.x + Tmp.t1.x, player.y + height + Tmp.t1.y);
 
-        Angles.vector.setLength(1f);
-        Draw.rect("hand", player.x + Angles.x(), player.y + height + Angles.y());
+        Tmp.t1.setLength(1f);
+        Draw.rect("hand", player.x + Tmp.t1.y, player.y + height + Tmp.t1.y);
     }
 
     @Override

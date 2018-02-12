@@ -38,15 +38,15 @@ public class Player extends Spark {
     @Override
     public void collision(SolidEntity other) {
         super.collision(other);
-        if(other instanceof  Bullet) {
+        if(other instanceof Bullet) {
             Bullet b = (Bullet)other;
             float angle = other.angleTo(this);
             if(b.getDamage() > 1) Effects.effect(Fx.sparkspatter, x, y, angle);
             for(int i = 0; i < 3; i ++)
                 Effects.effect(Fx.hitparticle, x, y, angle + Mathf.range(30f));
             Effects.shake(4f, 3f, this);
-            Angles.translation(angle, 2f * b.getDamage());
-            impulse(Angles.vector);
+            tr.trns(angle, 2f * b.getDamage());
+            impulse(tr.x, tr.y);
             hittime = 1f;
         }
     }

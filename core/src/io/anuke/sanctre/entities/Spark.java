@@ -10,12 +10,16 @@ import io.anuke.ucore.facet.FacetList;
 import io.anuke.ucore.facet.Sorter;
 import io.anuke.ucore.function.Listenable;
 import io.anuke.ucore.function.Supplier;
+import io.anuke.ucore.util.Translator;
 
 public class Spark extends DestructibleEntity {
     public FacetList facets = new FacetList();
     public float height = 5f;
     public Vector2 velocity = new Vector2();
     public float drag = 0.4f;
+
+    protected Translator tr = new Translator();
+    protected Vector2 vector = new Vector2();
 
     public Spark(){
         hitboxTile.offsety = 1f;
@@ -42,9 +46,10 @@ public class Spark extends DestructibleEntity {
     }
 
     public Vector2 updateVelocity(){
-        Vector2 v = move(velocity.x * Timers.delta(), velocity.y * Timers.delta());
+        float px = x, py = y;
+        move(velocity.x * Timers.delta(), velocity.y * Timers.delta());
         velocity.scl(1f-drag * Timers.delta());
-        return v;
+        return vector.set(x - px, y - py);
     }
 
     public void shoot(BulletType type, float angle){

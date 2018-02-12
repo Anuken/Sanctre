@@ -10,8 +10,11 @@ import io.anuke.ucore.graphics.Shapes;
 import io.anuke.ucore.util.Angles;
 import io.anuke.ucore.util.Mathf;
 import io.anuke.ucore.util.Tmp;
+import io.anuke.ucore.util.Translator;
 
 public class EnemyFx {
+    private static final Translator tr = new Translator();
+
     public static final Effect
 
     darkparticle = new DarkEffect(8f, e -> {
@@ -42,26 +45,35 @@ public class EnemyFx {
     }),
     taintwave = new DarkEffect(8f, e -> {
         Draw.color(SColors.taint);
-        Lines.poly(e.x, e.y, 3, e.ifract() * 5f, e.rotation);
         Lines.stroke(2f * e.fract());
+        Lines.poly(e.x, e.y, 3, e.ifract() * 5f, e.rotation);
+        Draw.reset();
+    }),
+    taintwavel = new DarkEffect(12f, e -> {
+        Draw.color(SColors.taintLight);
+        Lines.stroke(2f * e.fract());
+        Lines.poly(e.x, e.y, 3, e.ifract() * 15f + 14f, e.rotation);
+        Draw.reset();
     }),
     lasersine = new DarkEffect(70f, e -> {
         float length = 500f;
         float segment = 5f;
 
         float lastx = 0f, lasty = 0f;
-        float sscl = 0f;//e.ifract();
+        float sscl = e.ifract() / 14f;
         float tscl = Mathf.pow(e.fract(), 3f);
 
         Draw.color(SColors.taint, SColors.shade, e.ifract());
         float thickscl = 1f;
         for (float f = segment; f < length; f += segment) {
             float fract = 1f - f / length;
-            Tmp.v2.set(f, Mathf.sin(f, 8f, 30f * sscl * fract)).rotate(e.rotation);
+
+            tr.trns(e.rotation, f, Mathf.sin(f, 8f, 30f * sscl * fract));
+
             Lines.stroke(fract * 10f * tscl * thickscl);
-            Lines.line(e.x + lastx, e.y + lasty, e.x + Tmp.v2.x, e.y + Tmp.v2.y);
-            lastx = Tmp.v2.x;
-            lasty = Tmp.v2.y;
+            Lines.line(e.x + lastx, e.y + lasty, e.x + tr.x, e.y + tr.y);
+            lastx = tr.x;
+            lasty = tr.y;
         }
         Draw.reset();
     }),
@@ -77,11 +89,13 @@ public class EnemyFx {
         float thickscl = 1f;
         for (float f = segment; f < length; f += segment) {
             float fract = 1f - f / length;
-            Tmp.v2.set(f, Mathf.sin(f, 8f, 30f * sscl * fract)).rotate(e.rotation);
+
+            tr.trns(e.rotation, f, Mathf.sin(f, 8f, 30f * sscl * fract));
+
             Lines.stroke(fract* tscl * thickscl);
-            Lines.line(e.x + lastx, e.y + lasty, e.x + Tmp.v2.x, e.y + Tmp.v2.y);
-            lastx = Tmp.v2.x;
-            lasty = Tmp.v2.y;
+            Lines.line(e.x + lastx, e.y + lasty, e.x + tr.x, e.y + tr.y);
+            lastx = tr.x;
+            lasty = tr.y;
         }
         Draw.reset();
     }),
@@ -98,7 +112,7 @@ public class EnemyFx {
         Lines.stroke(e.ifract() * 1f + 0.5f);
 
         Angles.randLenVectors(e.id, 7, 60f * e.fract(), (x, y) -> {
-            Fill.poly(e.x + x, e.y + y, 3, e.ifract() * 4f, Mathf.atan2(x, y) + 30 + 180f);
+            Fill.poly(e.x + x, e.y + y, 3, e.ifract() * 4f, Mathf.atan2(x, y) + 30);
         });
 
         Draw.reset();
@@ -111,7 +125,7 @@ public class EnemyFx {
         Lines.spikes(e.x, e.y, e.fract() * 40f + 10f - e.ifract()*20f, -e.fract()*10f, 20);
 
         Angles.circleVectors(3, e.fract() * 60f, (x, y) -> {
-            Fill.poly(e.x + x, e.y + y, 3, e.ifract() * 9f, Mathf.atan2(x, y) + 30 + 180f);
+            Fill.poly(e.x + x, e.y + y, 3, e.ifract() * 9f, Mathf.atan2(x, y) + 30);
         });
 
         Draw.reset();

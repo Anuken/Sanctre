@@ -30,8 +30,8 @@ public class Enemy extends Spark {
         hittime = 1.0f;
         Effects.shake(hitshake, hitshake, this);
 
-        Angles.translation(b.angleTo(x, y + height), 0.5f);
-        impulse(Angles.vector);
+        tr.trns(b.angleTo(x, y + height), 0.5f);
+        impulse(tr.x, tr.y);
     }
 
     @Override

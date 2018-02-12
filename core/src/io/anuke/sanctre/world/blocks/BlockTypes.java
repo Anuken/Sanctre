@@ -371,8 +371,8 @@ public class BlockTypes{
 
 						Angles.circle(shape.sides, f->{
 							cindex ++;
-							Angles.translation(f + shape.rotation + spin, shape.radius);
-							Draw.rect(randRune(cindex + 1, tile), tile.worldx() + Angles.x(), tile.worldy() + Angles.y());
+							Tmp.t1.trns(f + shape.rotation + spin, shape.radius);
+							Draw.rect(randRune(cindex + 1, tile), tile.worldx() + Tmp.t1.x, tile.worldy() + Tmp.t1.y);
 						});
 					}else{
 						Lines.stroke(shape.thickness);
