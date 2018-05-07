@@ -30,7 +30,7 @@ public class ShadeBullets {
         public void draw(Bullet b) {
             Draw.color(SColors.taint);
 
-            float f = b.fract()*2f;
+            float f = b.fout()*2f;
 
             Draw.rect("circle", b.x, b.y, 6f*f, 6f*f);
             Lines.stroke(3f * f);
@@ -41,11 +41,11 @@ public class ShadeBullets {
             Lines.stroke(1f * f);
             Lines.lineAngle(b.x, b.y, b.angle(), length + 12f);
 
-            Draw.color(SColors.taintLight, SColors.taint, b.ifract());
+            Draw.color(SColors.taintLight, SColors.taint, b.fin());
 
             for(int i : Mathf.signs){
-                Shapes.lineShot(b.x, b.y, b.angle() + 70 * i, 3, b.fract(), 12f, 2f, 0.5f);
-                Shapes.lineShot(b.x, b.y, b.angle() + 30 * i, 3, b.fract(), 30f, 1.3f, 0.5f);
+                Shapes.lineShot(b.x, b.y, b.angle() + 70 * i, 3, b.fout(), 12f, 2f, 0.5f);
+                Shapes.lineShot(b.x, b.y, b.angle() + 30 * i, 3, b.fout(), 30f, 1.3f, 0.5f);
             }
 
             Draw.color(SColors.taintLight);
@@ -71,7 +71,7 @@ public class ShadeBullets {
         public void draw(Bullet b) {
             Draw.color(SColors.taint);
 
-            float f = b.fract()*5f;
+            float f = b.fout()*5f;
 
             Draw.rect("circle", b.x, b.y, 6f*f, 6f*f);
             Lines.stroke(3f * f);
@@ -82,14 +82,14 @@ public class ShadeBullets {
             Lines.stroke(1f * f);
             Lines.lineAngle(b.x, b.y, b.angle(), length + 16f);
 
-            Draw.color(SColors.taintLight, SColors.taint, b.ifract() > 0.5f ? 1f : 0f);
+            Draw.color(SColors.taintLight, SColors.taint, b.fin() > 0.5f ? 1f : 0f);
 
-            float pf = Mathf.pow(b.fract(), 3f);
+            float pf = Mathf.pow(b.fout(), 3f);
 
             for(int i : Mathf.signs){
                 Shapes.lineShotFade(b.x, b.y, b.angle() + 45 * i, 5, pf, 50f, 1.5f, 0.8f, 1f);
                 Shapes.lineShotFade(b.x, b.y, b.angle() + 135 * i, 5, pf, 50f, 1.5f, 0.8f, 1f);
-                //Draw.lineShotFade(b.x, b.y, b.angle() + 15 * i, 3, b.fract(), 80f, 2f, 0.5f);
+                //Draw.lineShotFade(b.x, b.y, b.angle() + 15 * i, 3, b.fout(), 80f, 2f, 0.5f);
             }
 
             Draw.color(SColors.taintLight);
@@ -132,7 +132,7 @@ public class ShadeBullets {
             Draw.reset();
         }
 
-        @Override
+
         public void removed(Bullet b) {
             Effects.shake(3f, 3f, b);
             Angles.circle(5, f -> new Bullet(orb, b.owner, b.x, b.y, f + b.angle()).add());
@@ -153,8 +153,9 @@ public class ShadeBullets {
         @Override
         public void draw(Bullet b) {
             Draw.color(SColors.taint);
-            Lines.lineAngleCenter(b.x, b.y, b.angle(), 7f);
             Lines.stroke(2f);
+            Lines.lineAngleCenter(b.x, b.y, b.angle(), 8f);
+            Lines.stroke(3f);
             Lines.lineAngleCenter(b.x, b.y, b.angle(), 5f);
             Draw.reset();
         }

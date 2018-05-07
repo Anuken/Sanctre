@@ -85,7 +85,7 @@ public class Emitter {
             return 1f-life/particleLife;
         }
 
-        public float ifract(){
+        public float fin(){
             return life/particleLife;
         }
 

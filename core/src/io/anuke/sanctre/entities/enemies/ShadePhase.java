@@ -23,17 +23,18 @@ public enum ShadePhase {
     },
     tris{
         float reload = 60;
+        float ang = 0;
         {
             rotateMin = false;
             rotate = false;
         }
 
         void update(Shade s) {
-            s.trirot += Timers.delta() * 3f;
+            s.trirot -= Timers.delta() * 3f;
 
             s.tris(tri -> {
                 tri.length = Mathf.lerpDelta(tri.length, getTime(tri, "laser")/reload * 80f, 0.1f);
-                tri.angle = Mathf.lerpAngDelta(tri.angle, s.target.angleTo(tri.x, tri.y) + 180f, 0.8f);
+                tri.angle = Mathf.slerpDelta(tri.angle, s.target.angleTo(tri.x, tri.y) + 180f, 0.8f);
                 tri.charge = getTime(tri, "laser") / reload;
 
                 if (get(tri, "laser", reload)) {
@@ -47,6 +48,13 @@ public enum ShadePhase {
 
             if(get(s, "fsh", 5)){
                 s.shootArms(ShadeBullets.ball);
+            }
+
+            if(get(s, "fcir", 70)){
+                Angles.circle(16, f -> {
+                    float len = 20f;
+                    s.shoot(ShadeBullets.lineb, s.x + Angles.trnsx(f, len), s.y + Angles.trnsy(f, len), f);
+                });
             }
         }
 

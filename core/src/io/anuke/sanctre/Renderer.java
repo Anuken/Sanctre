@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Pools;
 import io.anuke.sanctre.entities.FacetEffect;
 import io.anuke.sanctre.graphics.BlockRenderer;
 import io.anuke.sanctre.graphics.DecalRenderer;
@@ -63,7 +64,14 @@ public class Renderer extends RendererModule {
 
         Facets.instance().setLayerManager(hand);
 
-        Effects.setEffectProvider((effect, color, x, y, rotation) -> new FacetEffect(effect, color, rotation).set(x, y).add());
+        Effects.setEffectProvider((effect, color, x, y, rotation, data) -> {
+            FacetEffect f = Pools.obtain(FacetEffect.class);
+            f.color = color;
+            f.effect = effect;
+            f.rotation = rotation;
+            f.data = data;
+            f.set(x, y).add();
+        });
     }
 
     public LightRenderer lights() {

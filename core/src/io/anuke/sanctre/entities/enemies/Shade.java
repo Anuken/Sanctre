@@ -36,7 +36,7 @@ import static io.anuke.ucore.core.Timers.*;
 
 public class Shade extends Enemy {
     static final float shootduration = 10f;
-    static final float phaseduration = 60 * 8000;
+    static final float phaseduration = 60 * 2;
     static final float eyeHeight = 11f;
 
     private ShadePhase phase = ShadePhase.tris;
@@ -185,7 +185,13 @@ public class Shade extends Enemy {
             trirot += Timers.delta();
         }
 
-        if(phase.rotateMin) for(int i = 0; i < 3; i ++) tris[i].angle = i*120 + trirot;
+        if(phase.rotateMin){
+            for(int i = 0; i < 3; i ++){
+                tris[i].angle = i*120 + trirot;
+                tris[i].charge = Mathf.lerpDelta(tris[i].charge, 0f, 0.1f);
+                tris[i].length = Mathf.lerpDelta(tris[i].length, 0f, 0.1f);
+            }
+        }
 
         if(phaseTime > phaseduration){
             next();

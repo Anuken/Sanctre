@@ -3,6 +3,7 @@ package io.anuke.sanctre.desktop;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import io.anuke.sanctre.Sanctre;
+import io.anuke.ucore.core.Timers;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {

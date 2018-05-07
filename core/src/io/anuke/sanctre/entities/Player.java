@@ -8,7 +8,10 @@ import io.anuke.sanctre.items.Item;
 import io.anuke.sanctre.items.Items;
 import io.anuke.ucore.core.*;
 import io.anuke.ucore.entities.SolidEntity;
+import io.anuke.ucore.graphics.CapStyle;
 import io.anuke.ucore.graphics.Draw;
+import io.anuke.ucore.graphics.Lines;
+import io.anuke.ucore.lsystem.LTree.Line;
 import io.anuke.ucore.util.Angles;
 import io.anuke.ucore.util.Mathf;
 
@@ -36,8 +39,9 @@ public class Player extends Spark {
     }
 
     @Override
-    public void collision(SolidEntity other) {
-        super.collision(other);
+    public void collision(SolidEntity other, float x, float y) {
+        super.collision(other, x, y);
+
         if(other instanceof Bullet) {
             Bullet b = (Bullet)other;
             float angle = other.angleTo(this);
@@ -90,6 +94,9 @@ public class Player extends Spark {
                 weapon.draw(this);
             }
             weapon.drawOver(this);
+
+            //Lines.stroke(9f);
+            //Lines.line(x, y, x, y + 20f, CapStyle.round);
 
             x = cx;
             y = cy;

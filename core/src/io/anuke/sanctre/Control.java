@@ -21,12 +21,12 @@ public class Control extends Module{
 	public Control(){
 	
 		KeyBinds.defaults(
-				"up", Input.W,
-				"left", Input.A,
-				"down", Input.S,
-				"right", Input.D,
-				"attack1", Input.MOUSE_LEFT,
-				"dash", Input.SPACE
+			"up", Input.W,
+			"left", Input.A,
+			"down", Input.S,
+			"right", Input.D,
+			"attack1", Input.MOUSE_LEFT,
+			"dash", Input.SPACE
 		);
 		
 		Settings.loadAll("io.anuke.sanctre");
@@ -64,10 +64,10 @@ public class Control extends Module{
 	
 	@Override
 	public void update(){
-		if(Inputs.keyTap(Keys.ESCAPE))
+		if(Inputs.keyTap(Input.ESCAPE))
 			Gdx.app.exit();
 
-		if(Inputs.keyTap(Keys.P))
+		if(Inputs.keyTap(Input.P))
 			Vars.debug = !Vars.debug;
 
 		Entities.update();

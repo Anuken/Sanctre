@@ -29,7 +29,7 @@ public class Sword extends Weapon {
     public float length = 14f;
     public float basethick = 7f;
     public float swingspeed = 30f;
-    public float dashthick = 15f;
+    public float dashthick = 19f;
     public float dashspeed = 34f;
     public float lungeSpeed = 14f;
     public BulletType bullet = WeaponBullets.slash;
@@ -105,6 +105,7 @@ public class Sword extends Weapon {
                 float first = baseang + Mathf.sign(direction) * arc/2f;
                 float current = baseang + getAngleOffset();
                 boolean valid;
+
                 if(!direction){
                     valid = angle > first && angle < current || angle > first % 360f && angle < current % 360f;
                 }else{
@@ -160,7 +161,7 @@ public class Sword extends Weapon {
                 Vector3 next = points.get(i + 1);
 
                 Lines.stroke(thick);
-                Lines.line(offsetx + cur.x, offsety + cur.y, offsetx + next.x, offsety + next.y, CapStyle.none, 1f);
+                Lines.line(offsetx + cur.x, offsety + cur.y, offsetx + next.x, offsety + next.y, i == 0 ? CapStyle.round : CapStyle.none, 1f);
             }
 
             cur.z += 1f/swingduration;
@@ -181,10 +182,7 @@ public class Sword extends Weapon {
                 Vector3 next = dashes.get(i + 1);
 
                 Lines.stroke(thick);
-                Lines.line(offsetx + cur.x, offsety + cur.y, offsetx + next.x, offsety + next.y, CapStyle.none, 1f);
-            }else{
-                float rad = thick*0.75f;
-                Draw.rect("circle", cur.x, cur.y, rad, rad);
+                Lines.line(offsetx + cur.x, offsety + cur.y, offsetx + next.x, offsety + next.y, CapStyle.round);
             }
 
             cur.z += 1f/9;

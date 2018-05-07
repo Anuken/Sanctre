@@ -44,7 +44,7 @@ public class Bullet extends BulletEntity {
     }
 
     @Override
-    public void collision(SolidEntity other){
+    public void collision(SolidEntity other, float x, float y){
         if(other instanceof Bullet){
             if(type().block){
                 Effects.effect(type().hitEffect, this);
@@ -53,7 +53,7 @@ public class Bullet extends BulletEntity {
             velocity.setAngle(angle + 180f);
         }else if(!type().line){
             remove();
-            type.removed(this);
+            type.hit(this, x, y);
         }
     }
 

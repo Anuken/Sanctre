@@ -23,8 +23,8 @@ public class Enemy extends Spark {
     }
 
     @Override
-    public void collision(SolidEntity other) {
-        super.collision(other);
+    public void collision(SolidEntity other, float x, float y) {
+        super.collision(other, x, y);
         Bullet b = (Bullet)other;
         Effects.effect(hiteffect, b.x, b.y, b.angle());
         hittime = 1.0f;
