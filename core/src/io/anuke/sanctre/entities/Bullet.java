@@ -2,18 +2,17 @@ package io.anuke.sanctre.entities;
 
 import com.badlogic.gdx.math.Rectangle;
 import io.anuke.ucore.core.Effects;
-import io.anuke.ucore.entities.BulletEntity;
-import io.anuke.ucore.entities.Entity;
-import io.anuke.ucore.entities.SolidEntity;
+import io.anuke.ucore.entities.impl.BulletEntity;
+import io.anuke.ucore.entities.trait.Entity;
+import io.anuke.ucore.entities.trait.SolidTrait;
 import io.anuke.ucore.facet.BaseFacet;
 import io.anuke.ucore.facet.FacetList;
 import io.anuke.ucore.facet.Sorter;
-import io.anuke.ucore.util.Angles;
 import io.anuke.ucore.util.Mathf;
 import io.anuke.ucore.util.Physics;
 import io.anuke.ucore.util.Tmp;
 
-public class Bullet extends BulletEntity {
+public class Bullet extends BulletEntity<BulletType> {
     public FacetList facets = new FacetList();
 
     public Bullet(BulletType type, Entity owner, float x, float y, float angle){
@@ -26,15 +25,16 @@ public class Bullet extends BulletEntity {
     }
 
     @Override
-    public boolean collides(SolidEntity other){
-        BulletType type = (BulletType)this.type;
+    public boolean collides(SolidTrait other){
+        BulletType type = this.type;
 
         if(other instanceof Bullet){
             Bullet bullet = (Bullet)other;
             return (bullet.type().block || type.block) && !(type().line || bullet.type().line) && bullet.owner != owner;
         }else{
             if(type.line){
-                Rectangle hit = other.hitbox.getRect(other.x, other.y);
+                Rectangle hit = Tmp.r3;
+                other.getHitbox(hit);
                 Tmp.t1.trns(angle(), type.length);
                 return Physics.raycastRect(x, y, x + Tmp.t1.x, y + Tmp.t1.y, hit) != null;
             }else {
@@ -44,7 +44,7 @@ public class Bullet extends BulletEntity {
     }
 
     @Override
-    public void collision(SolidEntity other, float x, float y){
+    public void collision(SolidTrait other, float x, float y){
         if(other instanceof Bullet){
             if(type().block){
                 Effects.effect(type().hitEffect, this);

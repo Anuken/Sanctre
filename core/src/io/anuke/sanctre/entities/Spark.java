@@ -1,18 +1,18 @@
 package io.anuke.sanctre.entities;
 
 import com.badlogic.gdx.math.Vector2;
+import io.anuke.ucore.entities.impl.DestructibleEntity;
+import io.anuke.ucore.entities.trait.DrawTrait;
 import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.core.Timers;
-import io.anuke.ucore.entities.DestructibleEntity;
 import io.anuke.ucore.facet.BaseFacet;
 import io.anuke.ucore.facet.BaseFacet.DrawFunc;
 import io.anuke.ucore.facet.FacetList;
 import io.anuke.ucore.facet.Sorter;
-import io.anuke.ucore.function.Listenable;
 import io.anuke.ucore.function.Supplier;
 import io.anuke.ucore.util.Translator;
 
-public class Spark extends DestructibleEntity {
+public abstract class Spark extends DestructibleEntity implements DrawTrait{
     public FacetList facets = new FacetList();
     public float height = 5f;
     public Vector2 velocity = new Vector2();
@@ -22,9 +22,14 @@ public class Spark extends DestructibleEntity {
     protected Vector2 vector = new Vector2();
 
     public Spark(){
-        hitboxTile.offsety = 1f;
+        hitboxTile.y = 1f;
         hitboxTile.setSize(4f, 2f);
-        hitbox.offsety = 3f;
+        hitbox.y = 3f;
+    }
+
+    @Override
+    public float maxHealth(){
+        return 10;
     }
 
     @Override
@@ -60,23 +65,23 @@ public class Spark extends DestructibleEntity {
         new Bullet(type, this, x, y, angle).add();
     }
 
-    public void draw(Sorter sorter, float layer, Listenable l){
-        facets.add(new BaseFacet(layer, sorter, p -> l.listen()));
+    public void draw(Sorter sorter, float layer, Runnable l){
+        facets.add(new BaseFacet(layer, sorter, p -> l.run()));
     }
 
-    public void draw(int shadowsize, Listenable d){
+    public void draw(int shadowsize, Runnable d){
         drawShadow(shadowsize, 0);
         facets.add(new BaseFacet(0, Sorter.object, p->{
             p.layer = y;
-            d.listen();
+            d.run();
         }));
     }
 
-    public void draw(int shadowsize, Supplier<Float> layer, Listenable d){
+    public void draw(int shadowsize, Supplier<Float> layer, Runnable d){
         drawShadow(shadowsize, 0);
         facets.add(new BaseFacet(0, Sorter.object, p->{
             p.layer = layer.get();
-            d.listen();
+            d.run();
         }));
     }
 

@@ -1,7 +1,6 @@
 package io.anuke.sanctre;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import io.anuke.sanctre.entities.Player;
 import io.anuke.sanctre.entities.enemies.Shade;
 import io.anuke.sanctre.files.Watcher;
@@ -9,10 +8,10 @@ import io.anuke.sanctre.graphics.Shaders;
 import io.anuke.sanctre.world.Tile;
 import io.anuke.ucore.core.*;
 import io.anuke.ucore.entities.Entities;
+import io.anuke.ucore.entities.EntityPhysics;
+import io.anuke.ucore.input.Input;
 import io.anuke.ucore.modules.Module;
 import io.anuke.ucore.util.Atlas;
-import io.anuke.ucore.util.Input;
-import io.anuke.ucore.util.Log;
 
 import static io.anuke.sanctre.Vars.*;
 
@@ -41,15 +40,16 @@ public class Control extends Module{
 			Shaders.distort.reload();
 		});
 
-		player = new Player().add();
+		player = new Player();
+		player.add();
 		Effects.setShakeFalloff(50000f);
 	}
 
 	@Override
 	public void init(){
-		Entities.initPhysics(0, 0, world.width() * tilesize, world.height() * tilesize);
+		EntityPhysics.initPhysics(0, 0, world.width() * tilesize, world.height() * tilesize);
 
-		Entities.collisions().setCollider(tilesize, world::solid, (x, y, rect) -> {
+		EntityPhysics.collisions().setCollider(tilesize, world::solid, (x, y, rect) -> {
 			Tile tile = world.get(x, y);
 			if(tile == null)
 				rect.setSize(tilesize).setCenter(x * tilesize, y * tilesize);
@@ -59,7 +59,9 @@ public class Control extends Module{
 
 		player.set(world.getStartX()*tilesize, world.getStartY()*tilesize - 40f);
 
-		new Shade().set(world.getStartX()*tilesize, world.getStartY()*tilesize).add();
+		Shade shade = new Shade();
+		shade.set(world.getStartX()*tilesize, world.getStartY()*tilesize);
+		shade.add();
 	}
 	
 	@Override

@@ -10,12 +10,12 @@ import io.anuke.sanctre.entities.Player;
 import io.anuke.sanctre.entities.bullets.WeaponBullets;
 import io.anuke.sanctre.graphics.effects.Fx;
 import io.anuke.sanctre.items.Weapon;
+import io.anuke.ucore.entities.EntityPhysics;
 import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.core.Effects;
 import io.anuke.ucore.core.Inputs;
 import io.anuke.ucore.core.Timers;
 import io.anuke.ucore.entities.Entities;
-import io.anuke.ucore.entities.Hitbox;
 import io.anuke.ucore.graphics.CapStyle;
 import io.anuke.ucore.graphics.Lines;
 import io.anuke.ucore.util.Angles;
@@ -31,7 +31,7 @@ public class Sword extends Weapon {
     public float swingspeed = 30f;
     public float dashthick = 19f;
     public float dashspeed = 34f;
-    public float lungeSpeed = 14f;
+    public float lungeSpeed = 1f;
     public BulletType bullet = WeaponBullets.slash;
     public Color startColor = Color.WHITE, endColor = Color.LIGHT_GRAY;
 
@@ -58,8 +58,8 @@ public class Sword extends Weapon {
             swingreload = 1f;
         }
 
-        if(Inputs.keyTap("dash") && !swinging && dashreload <= 0f){
-            Tmp.t1.trns(Angles.mouseAngle(player.x, player.y + height), lungeSpeed);
+        if(Inputs.keyDown("dash") && !swinging){
+            Tmp.t1.trns(player.velocity.angle(), lungeSpeed);
             player.impulseMove(Tmp.t1);
             swingreload = 0f;
             dashreload = 1f;
@@ -93,14 +93,13 @@ public class Sword extends Weapon {
             }
 
             //deflect bullets
-            Entities.getNearby(player.x, player.y + height, length*4f, e -> {
+            EntityPhysics.getNearby(player.x, player.y + height, length*4f, e -> {
                 if(!(e instanceof Bullet)) return;
                 Bullet b = (Bullet)e;
 
-                if(b.owner instanceof Player) return;
+                if(b.getOwner() instanceof Player) return;
 
-                Hitbox box = e.hitbox;
-                float angle = Angles.angle(player.x, player.y + height, e.x + box.offsetx, e.y + box.offsety);
+                float angle = Angles.angle(player.x, player.y + height, e.getX() + b.hitbox.x, e.getY() + b.hitbox.y);
 
                 float first = baseang + Mathf.sign(direction) * arc/2f;
                 float current = baseang + getAngleOffset();
@@ -113,9 +112,7 @@ public class Sword extends Weapon {
                 }
 
                 if(b.distanceTo(player.x, player.y + height) <= length*2f && valid){
-                    b.velocity.setAngle(b.angleTo(player.x, player.y + height) + 180f);
-                    b.velocity.scl(1.1f);
-                    b.velocity.add(player.velocity.cpy().scl(0.5f));
+                    b.getVelocity().setAngle(b.angleTo(player.x, player.y + height) + 180f).scl(1.1f).add(player.velocity.cpy().scl(0.5f));
                     Effects.effect(Fx.swordspark, b.x, b.y, b.angle());
                     swingreload = -1f;
                 }

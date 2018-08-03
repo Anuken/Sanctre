@@ -4,12 +4,12 @@ import io.anuke.sanctre.Vars;
 import io.anuke.sanctre.graphics.DarkEffect;
 import io.anuke.sanctre.graphics.DecalEffect;
 import io.anuke.ucore.core.Effects;
-import io.anuke.ucore.entities.EffectEntity;
+import io.anuke.ucore.entities.impl.EffectEntity;
 import io.anuke.ucore.facet.BaseFacet;
 import io.anuke.ucore.facet.Facets;
 import io.anuke.ucore.facet.Sorter;
 
-public class FacetEffect extends EffectEntity {
+public class FacetEffect extends EffectEntity{
     private BaseFacet facet;
 
     @Override
@@ -20,7 +20,7 @@ public class FacetEffect extends EffectEntity {
     @Override
     public void removed(){
         if(effect instanceof DecalEffect){
-            time = lifetime;
+            time = lifetime();
             Vars.renderer.decals().addDraw(() -> Effects.renderEffect(id, effect, color, time, rotation, x, y, data));
         }
         facet.remove();

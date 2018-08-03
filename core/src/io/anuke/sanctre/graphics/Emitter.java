@@ -2,7 +2,7 @@ package io.anuke.sanctre.graphics;
 
 import com.badlogic.gdx.math.Vector2;
 import io.anuke.ucore.core.Timers;
-import io.anuke.ucore.entities.Entity;
+import io.anuke.ucore.entities.trait.Entity;
 import io.anuke.ucore.util.Mathf;
 
 public class Emitter {
@@ -97,7 +97,7 @@ public class Emitter {
             if(relative){
                 set(Mathf.range(xRange), Mathf.random(yMin, yMax));
             }else{
-                set(Mathf.range(xRange) + entity.x, Mathf.random(yMin, yMax) + entity.y);
+                set(Mathf.range(xRange) + entity.getX(), Mathf.random(yMin, yMax) + entity.getY());
             }
             life = 0f;
         }

@@ -5,10 +5,9 @@ import io.anuke.sanctre.graphics.Emitter;
 import io.anuke.ucore.core.Effects;
 import io.anuke.ucore.core.Effects.Effect;
 import io.anuke.ucore.core.Timers;
-import io.anuke.ucore.entities.SolidEntity;
-import io.anuke.ucore.util.Angles;
+import io.anuke.ucore.entities.trait.SolidTrait;
 
-public class Enemy extends Spark {
+public abstract class Enemy extends Spark {
     public static final float hitduration = 7f;
     public Effect hiteffect = EnemyFx.darkparticle;
     public float hitshake = 0f;
@@ -18,12 +17,12 @@ public class Enemy extends Spark {
     public Player target;
 
     @Override
-    public boolean collides(SolidEntity other) {
-        return other instanceof Bullet && ((Bullet)other).owner instanceof Player;
+    public boolean collides(SolidTrait other) {
+        return other instanceof Bullet && ((Bullet)other).getOwner() instanceof Player;
     }
 
     @Override
-    public void collision(SolidEntity other, float x, float y) {
+    public void collision(SolidTrait other, float x, float y) {
         super.collision(other, x, y);
         Bullet b = (Bullet)other;
         Effects.effect(hiteffect, b.x, b.y, b.angle());

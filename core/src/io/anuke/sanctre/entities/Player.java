@@ -1,17 +1,14 @@
 package io.anuke.sanctre.entities;
 
 import com.badlogic.gdx.math.Vector2;
-import io.anuke.sanctre.graphics.SColors;
+import io.anuke.sanctre.graphics.Palette;
 import io.anuke.sanctre.graphics.Shaders;
 import io.anuke.sanctre.graphics.effects.Fx;
 import io.anuke.sanctre.items.Item;
 import io.anuke.sanctre.items.Items;
 import io.anuke.ucore.core.*;
-import io.anuke.ucore.entities.SolidEntity;
-import io.anuke.ucore.graphics.CapStyle;
+import io.anuke.ucore.entities.trait.SolidTrait;
 import io.anuke.ucore.graphics.Draw;
-import io.anuke.ucore.graphics.Lines;
-import io.anuke.ucore.lsystem.LTree.Line;
 import io.anuke.ucore.util.Angles;
 import io.anuke.ucore.util.Mathf;
 
@@ -29,17 +26,17 @@ public class Player extends Spark {
     public Player(){
         hitbox.width = 4f;
         hitbox.height = 8f;
-        hitbox.offsety -= 1f;
+        hitbox.y -= 1f;
         drag = 0.3f;
     }
 
     @Override
-    public boolean collides(SolidEntity other) {
-        return hittime <= 0f && other instanceof Bullet && !(((Bullet) other).owner instanceof Player);
+    public boolean collides(SolidTrait other) {
+        return hittime <= 0f && other instanceof Bullet && !(((Bullet) other).getOwner() instanceof Player);
     }
 
     @Override
-    public void collision(SolidEntity other, float x, float y) {
+    public void collision(SolidTrait other, float x, float y) {
         super.collision(other, x, y);
 
         if(other instanceof Bullet) {
@@ -59,7 +56,10 @@ public class Player extends Spark {
     public void draw(){
         draw(b -> {
             Shaders.player.hittime = Mathf.clamp(hittime);
-            Shaders.player.color.set(SColors.blood);
+            Shaders.player.color.set(Palette.blood);
+            Shaders.player.light.set(Palette.light);
+            Shaders.player.dark.set(Palette.dark);
+            Shaders.player.skin.set(Palette.skin);
 
             float cx = x, cy = y;
             x = (int)x;

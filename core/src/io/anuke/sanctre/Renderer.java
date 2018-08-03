@@ -10,12 +10,12 @@ import io.anuke.sanctre.graphics.BlockRenderer;
 import io.anuke.sanctre.graphics.DecalRenderer;
 import io.anuke.sanctre.graphics.LightRenderer;
 import io.anuke.ucore.core.Core;
+import io.anuke.ucore.entities.impl.SolidEntity;
+import io.anuke.ucore.entities.trait.Entity;
 import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.core.Effects;
 import io.anuke.ucore.core.Graphics;
 import io.anuke.ucore.entities.Entities;
-import io.anuke.ucore.entities.Entity;
-import io.anuke.ucore.entities.SolidEntity;
 import io.anuke.ucore.facet.FacetLayer;
 import io.anuke.ucore.facet.FacetLayerHandler;
 import io.anuke.ucore.facet.Facets;
@@ -70,7 +70,8 @@ public class Renderer extends RendererModule {
             f.effect = effect;
             f.rotation = rotation;
             f.data = data;
-            f.set(x, y).add();
+            f.set(x, y);
+            f.add();
         });
     }
 
@@ -133,13 +134,13 @@ public class Renderer extends RendererModule {
             if(!(entity instanceof SolidEntity)) continue;
 
             SolidEntity s = (SolidEntity)entity;
-            Rectangle r = s.hitbox.getRect(s.x, s.y);
+            s.getHitbox(Tmp.r1);
             Draw.color(Color.GREEN);
-            Lines.rect(r);
+            Lines.rect(Tmp.r1);
 
-            r = s.hitboxTile.getRect(s.x, s.y);
+            s.getHitboxTile(Tmp.r1);
             Draw.color(Color.ORANGE);
-            Lines.rect(r);
+            Lines.rect(Tmp.r1);
         }
 
         Draw.reset();

@@ -3,7 +3,7 @@ package io.anuke.sanctre.graphics.effects;
 import com.badlogic.gdx.graphics.Color;
 import io.anuke.sanctre.graphics.DarkEffect;
 import io.anuke.sanctre.graphics.DecalEffect;
-import io.anuke.sanctre.graphics.SColors;
+import io.anuke.sanctre.graphics.Palette;
 import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.core.Effects.Effect;
 import io.anuke.ucore.graphics.Lines;
@@ -28,7 +28,7 @@ public class Fx {
         Shapes.lineShot(e.x, e.y, e.rotation + 180f, 9, e.fout(), 7f, 2f, 0.88f);
     }),
     bloodspatter = new DecalEffect(2f, e -> {
-        Draw.color(SColors.blood);
+        Draw.color(Palette.blood);
 
         Angles.randLenVectors(e.id, e.finpow(), 5, 6f, e.rotation, 100f, (x, y, f) -> {
             float rad = f * 6f + 3f;
@@ -47,7 +47,7 @@ public class Fx {
         Draw.reset();
     }),
     bloodparticle = new Effect(7f, e -> {
-        Draw.color(SColors.blood);
+        Draw.color(Palette.blood);
 
         Angles.randLenVectors(e.id, 5, e.fin() * 25f, e.rotation, 100f, (x, y) -> {
             float rad = 5f * e.fout() + 2f;
@@ -57,7 +57,7 @@ public class Fx {
         Draw.reset();
     }),
     sparkspatter = new DecalEffect(2f, e -> {
-        Draw.color(SColors.blood);
+        Draw.color(Palette.blood);
 
         Lines.stroke(2f);
 
@@ -74,7 +74,7 @@ public class Fx {
         Draw.reset();
     }),
     sparkparticle = new Effect(8f, e -> {
-        Draw.color(SColors.blood);
+        Draw.color(Palette.blood);
 
         Lines.stroke(2f);
 
@@ -85,7 +85,7 @@ public class Fx {
         Draw.reset();
     }),
     hitparticle = new DarkEffect(7f, 1f, e -> {
-        Draw.color(SColors.taint);
+        Draw.color(Palette.taint);
         Shapes.lineShotFade(e.x, e.y, e.rotation, 9, e.fout(), 42f, 1.3f, 0.88f, 1f);
         Draw.reset();
     });

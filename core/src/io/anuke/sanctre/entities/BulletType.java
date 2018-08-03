@@ -2,9 +2,9 @@ package io.anuke.sanctre.entities;
 
 import io.anuke.sanctre.graphics.effects.Fx;
 import io.anuke.ucore.core.Effects.Effect;
-import io.anuke.ucore.entities.BaseBulletType;
+import io.anuke.ucore.entities.impl.BaseBulletType;
 
-public abstract class BulletType extends BaseBulletType<Bullet> {
+public abstract class BulletType extends BaseBulletType<Bullet>{
     public boolean dark;
     public boolean block;
     public Effect hitEffect = Fx.swordspark;

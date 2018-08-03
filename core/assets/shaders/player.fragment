@@ -8,15 +8,30 @@ uniform sampler2D u_texture;
 uniform vec4 u_hitcolor;
 uniform float u_hittime;
 
+uniform vec4 u_light;
+uniform vec4 u_dark;
+uniform vec4 u_skin;
+
 varying vec4 v_color;
 varying vec2 v_texCoord;
 
 void main() {
 
-	vec2 T = v_texCoord.xy;
-	vec4 c = texture2D(u_texture, T);
+	vec2 t = v_texCoord.xy;
+	vec4 c = texture2D(u_texture, t);
 	vec4 h = mix(c, u_hitcolor, u_hittime);
 	h.a = c.a;
+
+	if(c.a > 0.01){
+
+        if(c.r == 1.0){
+            h.rgb = u_dark.rgb;
+        }else if(c.g == 1.0){
+            h.rgb = u_light.rgb;
+        }else if(c.b == 1.0){
+            h.rgb = u_skin.rgb;
+        }
+	}
 
 	gl_FragColor = h;
 }

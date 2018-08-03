@@ -5,12 +5,13 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.utils.Array;
 import io.anuke.ucore.core.Core;
 import io.anuke.ucore.core.Graphics;
-import io.anuke.ucore.function.Callable;
 import io.anuke.ucore.graphics.CacheBatch;
+
+import java.util.concurrent.Callable;
 
 public class DecalRenderer {
     private static final int maxDecals = 300;
-    private Array<Callable> draws = new Array<>();
+    private Array<Runnable> draws = new Array<>();
     private CacheBatch batch = new CacheBatch(1024*32);
     private boolean update = false;
 
@@ -19,7 +20,7 @@ public class DecalRenderer {
         batch.end();
     }
 
-    public void addDraw(Callable call){
+    public void addDraw(Runnable call){
         draws.add(call);
         //remove extra junk
         if(draws.size > maxDecals){
@@ -35,7 +36,7 @@ public class DecalRenderer {
             Graphics.useBatch(batch);
             batch.begin(0);
 
-            for (Callable call : draws) {
+            for (Runnable call : draws) {
                 call.run();
             }
 

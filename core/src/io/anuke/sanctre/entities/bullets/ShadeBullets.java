@@ -2,7 +2,7 @@ package io.anuke.sanctre.entities.bullets;
 
 import io.anuke.sanctre.entities.Bullet;
 import io.anuke.sanctre.entities.BulletType;
-import io.anuke.sanctre.graphics.SColors;
+import io.anuke.sanctre.graphics.Palette;
 import io.anuke.sanctre.graphics.effects.EnemyFx;
 import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.core.Effects;
@@ -28,7 +28,7 @@ public class ShadeBullets {
 
         @Override
         public void draw(Bullet b) {
-            Draw.color(SColors.taint);
+            Draw.color(Palette.taint);
 
             float f = b.fout()*2f;
 
@@ -41,14 +41,14 @@ public class ShadeBullets {
             Lines.stroke(1f * f);
             Lines.lineAngle(b.x, b.y, b.angle(), length + 12f);
 
-            Draw.color(SColors.taintLight, SColors.taint, b.fin());
+            Draw.color(Palette.taintLight, Palette.taint, b.fin());
 
             for(int i : Mathf.signs){
                 Shapes.lineShot(b.x, b.y, b.angle() + 70 * i, 3, b.fout(), 12f, 2f, 0.5f);
                 Shapes.lineShot(b.x, b.y, b.angle() + 30 * i, 3, b.fout(), 30f, 1.3f, 0.5f);
             }
 
-            Draw.color(SColors.taintLight);
+            Draw.color(Palette.taintLight);
             Lines.stroke(1.5f * f);
             Draw.rect("circle", b.x, b.y, 3f*f, 3f*f);
             Lines.lineAngle(b.x, b.y, b.angle(), length);
@@ -69,7 +69,7 @@ public class ShadeBullets {
 
         @Override
         public void draw(Bullet b) {
-            Draw.color(SColors.taint);
+            Draw.color(Palette.taint);
 
             float f = b.fout()*5f;
 
@@ -82,7 +82,7 @@ public class ShadeBullets {
             Lines.stroke(1f * f);
             Lines.lineAngle(b.x, b.y, b.angle(), length + 16f);
 
-            Draw.color(SColors.taintLight, SColors.taint, b.fin() > 0.5f ? 1f : 0f);
+            Draw.color(Palette.taintLight, Palette.taint, b.fin() > 0.5f ? 1f : 0f);
 
             float pf = Mathf.pow(b.fout(), 3f);
 
@@ -92,7 +92,7 @@ public class ShadeBullets {
                 //Draw.lineShotFade(b.x, b.y, b.angle() + 15 * i, 3, b.fout(), 80f, 2f, 0.5f);
             }
 
-            Draw.color(SColors.taintLight);
+            Draw.color(Palette.taintLight);
             Lines.stroke(1.5f * f);
             Draw.rect("circle", b.x, b.y, 4f*f, 4f*f);
             Lines.lineAngle(b.x, b.y, b.angle(), length);
@@ -110,7 +110,7 @@ public class ShadeBullets {
 
         @Override
         public void draw(Bullet b) {
-            Draw.color(SColors.taint);
+            Draw.color(Palette.taint);
             Lines.stroke(2f);
             Lines.poly(b.x, b.y, 3, 4f, b.angle() + 30);
             Draw.reset();
@@ -126,7 +126,7 @@ public class ShadeBullets {
 
         @Override
         public void draw(Bullet b) {
-            Draw.color(SColors.taint);
+            Draw.color(Palette.taint);
             Lines.stroke(2f);
             Fill.circle(b.x, b.y, 6f);
             Draw.reset();
@@ -135,7 +135,7 @@ public class ShadeBullets {
 
         public void removed(Bullet b) {
             Effects.shake(3f, 3f, b);
-            Angles.circle(5, f -> new Bullet(orb, b.owner, b.x, b.y, f + b.angle()).add());
+            Angles.circle(5, f -> new Bullet(orb, b.getOwner(), b.x, b.y, f + b.angle()).add());
         }
 
         @Override
@@ -152,7 +152,7 @@ public class ShadeBullets {
 
         @Override
         public void draw(Bullet b) {
-            Draw.color(SColors.taint);
+            Draw.color(Palette.taint);
             Lines.stroke(2f);
             Lines.lineAngleCenter(b.x, b.y, b.angle(), 8f);
             Lines.stroke(3f);

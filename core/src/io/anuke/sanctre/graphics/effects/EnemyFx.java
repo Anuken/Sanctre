@@ -1,7 +1,7 @@
 package io.anuke.sanctre.graphics.effects;
 
 import io.anuke.sanctre.graphics.DarkEffect;
-import io.anuke.sanctre.graphics.SColors;
+import io.anuke.sanctre.graphics.Palette;
 import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.core.Effects.Effect;
 import io.anuke.ucore.graphics.Fill;
@@ -9,7 +9,6 @@ import io.anuke.ucore.graphics.Lines;
 import io.anuke.ucore.graphics.Shapes;
 import io.anuke.ucore.util.Angles;
 import io.anuke.ucore.util.Mathf;
-import io.anuke.ucore.util.Tmp;
 import io.anuke.ucore.util.Translator;
 
 public class EnemyFx {
@@ -18,7 +17,7 @@ public class EnemyFx {
     public static final Effect
 
     darkparticle = new DarkEffect(8f, e -> {
-        Draw.color(SColors.shade);
+        Draw.color(Palette.shade);
 
         Angles.randLenVectors(e.id, 6, e.fin() * 27f, e.rotation, 100f, (x, y) -> {
             float rad = 6f * e.fout() + 2f;
@@ -30,13 +29,13 @@ public class EnemyFx {
         Draw.reset();
     }),
     laserspark = new DarkEffect(12f, e -> {
-        Draw.color(SColors.taint);
+        Draw.color(Palette.taint);
         Lines.stroke(2f * e.fout());
         Lines.lineAngleCenter(e.x, e.y, e.rotation, 10f);
         Draw.reset();
     }),
     lasersparkthick = new DarkEffect(14f, e -> {
-        Draw.color(SColors.taint);
+        Draw.color(Palette.taint);
         Lines.stroke(1.5f * e.fout());
         Lines.lineAngleCenter(e.x, e.y, e.rotation, 12);
         Lines.stroke(1f * e.fout());
@@ -44,13 +43,13 @@ public class EnemyFx {
         Draw.reset();
     }),
     taintwave = new DarkEffect(8f, e -> {
-        Draw.color(SColors.taint);
+        Draw.color(Palette.taint);
         Lines.stroke(2f * e.fout());
         Lines.poly(e.x, e.y, 3, e.fin() * 5f, e.rotation);
         Draw.reset();
     }),
     taintwavel = new DarkEffect(12f, e -> {
-        Draw.color(SColors.taintLight);
+        Draw.color(Palette.taintLight);
         Lines.stroke(2f * e.fout());
         Lines.poly(e.x, e.y, 3, e.fin() * 15f + 14f, e.rotation);
         Draw.reset();
@@ -63,7 +62,7 @@ public class EnemyFx {
         float sscl = e.fin() / 14f;
         float tscl = Mathf.pow(e.fout(), 3f);
 
-        Draw.color(SColors.taint, SColors.shade, e.fin());
+        Draw.color(Palette.taint, Palette.shade, e.fin());
         float thickscl = 1f;
         for (float f = segment; f < length; f += segment) {
             float fract = 1f - f / length;
@@ -85,7 +84,7 @@ public class EnemyFx {
         float sscl = 0f;
         float tscl = Mathf.pow(e.fin(), 1f);
 
-        Draw.color(SColors.taint, SColors.shade, e.fout());
+        Draw.color(Palette.taint, Palette.shade, e.fout());
         float thickscl = 1f;
         for (float f = segment; f < length; f += segment) {
             float fract = 1f - f / length;
@@ -100,7 +99,7 @@ public class EnemyFx {
         Draw.reset();
     }),
     shadeshoot = new DarkEffect(7f, e -> {
-        Draw.color(SColors.taint, SColors.taintLight, e.fout() > 0.5f ? 1f : 0f);
+        Draw.color(Palette.taint, Palette.taintLight, e.fout() > 0.5f ? 1f : 0f);
 
         Shapes.lineShot(e.x, e.y, e.rotation, 6, e.fout(), 30f, 2f, 0.8f);
         Fill.circle(e.x, e.y, e.fout() * 5f);
@@ -108,7 +107,7 @@ public class EnemyFx {
     }),
     lasercharge = new DarkEffect(40f, e -> {
 
-        Draw.color(SColors.taintLight);
+        Draw.color(Palette.taintLight);
         Lines.stroke(e.fin() * 1f + 0.5f);
 
         Angles.randLenVectors(e.id, 7, 60f * e.fout(), (x, y) -> {
@@ -118,7 +117,7 @@ public class EnemyFx {
         Draw.reset();
     }),
     laserprecharge = new DarkEffect(40f, e -> {
-        Draw.color(SColors.taintLight);
+        Draw.color(Palette.taintLight);
         Lines.stroke(e.fin() * 3f);
 
         Lines.circle(e.x, e.y, e.fout() * 30f);

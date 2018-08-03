@@ -3,36 +3,29 @@ package io.anuke.sanctre.entities.enemies;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
 import io.anuke.sanctre.Vars;
 import io.anuke.sanctre.entities.BulletType;
 import io.anuke.sanctre.entities.Enemy;
-import io.anuke.sanctre.entities.bullets.ShadeBullets;
 import io.anuke.sanctre.graphics.Emitter;
 import io.anuke.sanctre.graphics.Emitter.Particle;
-import io.anuke.sanctre.graphics.SColors;
-import io.anuke.sanctre.graphics.Shaders;
+import io.anuke.sanctre.graphics.Palette;
 import io.anuke.sanctre.graphics.effects.EnemyFx;
 import io.anuke.ucore.core.*;
 import io.anuke.ucore.core.Effects.Effect;
 import io.anuke.ucore.facet.Sorter;
-import io.anuke.ucore.function.BiConsumer;
 import io.anuke.ucore.function.Consumer;
-import io.anuke.ucore.function.PositionConsumer;
 import io.anuke.ucore.graphics.Draw;
 import io.anuke.ucore.graphics.Fill;
 import io.anuke.ucore.graphics.Lines;
 import io.anuke.ucore.util.Angles;
 import io.anuke.ucore.util.Mathf;
-import io.anuke.ucore.util.Tmp;
 
-import static io.anuke.sanctre.graphics.SColors.shadeDark;
-import static io.anuke.sanctre.graphics.SColors.taintLight;
+import static io.anuke.sanctre.graphics.Palette.shadeDark;
+import static io.anuke.sanctre.graphics.Palette.taintLight;
 import static io.anuke.ucore.util.Tmp.*;
 
-import static io.anuke.sanctre.graphics.SColors.taint;
+import static io.anuke.sanctre.graphics.Palette.taint;
 import static io.anuke.sanctre.graphics.Shaders.distort;
-import static io.anuke.ucore.core.Timers.*;
 
 public class Shade extends Enemy {
     static final float shootduration = 10f;
@@ -54,7 +47,7 @@ public class Shade extends Enemy {
         emitter.particleLife = 120f;
         emitter.relative = true;
 
-        hitbox.bounds(0, 24f, 32, 42f);
+        hitbox.set(0, 24f, 32, 42f);
         hitshake = 3f;
         height = 24f;
 
@@ -106,7 +99,7 @@ public class Shade extends Enemy {
             x += vec.x;
             y += vec.y;
 
-            Draw.color(SColors.shade);
+            Draw.color(Palette.shade);
 
             for(Particle p : emitter.particles){
                 float rad = p.sfract() * 10f;
@@ -128,7 +121,7 @@ public class Shade extends Enemy {
 
             Graphics.endShaders();
 
-            Draw.color(SColors.taintLight);
+            Draw.color(Palette.taintLight);
 
             Draw.alpha(shootTime);
             Lines.stroke(5f * shootTime);
